@@ -517,6 +517,12 @@ button:focus-visible,
     outline-color: var(--c-primary-light);
 }
 
+[data-theme="midnight"] .settings-size__btn:focus-visible,
+[data-theme="moss"] .settings-size__btn:focus-visible,
+[data-theme="onyx"] .settings-size__btn:focus-visible {
+    outline-color: var(--c-primary-light);
+}
+
 .sr-only {
     position: absolute;
     width: 1px; height: 1px;
@@ -628,6 +634,67 @@ button:focus-visible,
     --page-max: 1320px;
     --measure: 880px;
 }
+
+/* ============================================
+   CONTRAST — Soft mode for easier reading
+   Reduces contrast by softening text and borders
+   ============================================ */
+
+[data-contrast="soft"] {
+    --text: var(--text-secondary);
+    --text-secondary: var(--text-muted);
+    --border: var(--border-hairline);
+    --border-strong: var(--border);
+}
+
+[data-contrast="soft"] body {
+    font-weight: 350;
+}
+
+[data-contrast="soft"] strong,
+[data-contrast="soft"] b {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+[data-contrast="soft"] h1,
+[data-contrast="soft"] h2,
+[data-contrast="soft"] h3 {
+    color: var(--text);
+}
+
+[data-contrast="soft"] .panel:hover {
+    box-shadow: none;
+}
+
+/* ============================================
+   LINE HEIGHT — User-controlled spacing
+   ============================================ */
+
+[data-lineheight="comfort"] {
+    --line-height-body: 1.55;
+    --line-height-heading: 1.2;
+}
+[data-lineheight="reading"] {
+    --line-height-body: 1.75;
+    --line-height-heading: 1.3;
+}
+[data-lineheight="relaxed"] {
+    --line-height-body: 2.0;
+    --line-height-heading: 1.4;
+}
+
+body {
+    line-height: var(--line-height-body, 1.75) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: var(--line-height-heading, 1.3) !important;
+}
+
+/* ============================================
+   HEADINGS
+   ============================================ */
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
@@ -958,50 +1025,55 @@ pre {
     position: absolute;
     top: 100%;
     right: 0;
-    min-width: 280px;
+    min-width: 290px;
     background: var(--bg-surface);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 14px;
     box-shadow: var(--shadow-lg);
-    padding: 1.2rem;
+    padding: 1.1rem 1.2rem;
     z-index: 200;
     animation: dropdown-in 0.18s ease;
 }
-
 .settings-panel.open { display: block; }
 
 .settings-panel__section {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-hairline);
 }
-.settings-panel__section:last-child { margin-bottom: 0; }
+.settings-panel__section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
 
 .settings-panel__label {
-    font-size: 0.68rem;
+    font-size: 0.62rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--text-muted);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.65rem;
 }
 
-/* Theme grid in settings */
+/* --- Theme grid --- */
 .settings-themes {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
+    gap: 0.45rem;
 }
 
 .settings-theme {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.3rem;
-    padding: 0.6rem 0.3rem;
+    gap: 0.25rem;
+    padding: 0.5rem 0.2rem;
     border: 2px solid var(--border);
     border-radius: 8px;
     cursor: pointer;
     background: var(--bg-surface);
-    transition: var(--transition);
+    transition: border-color 0.15s, background 0.15s;
     font-family: var(--font-sans);
 }
 .settings-theme:hover { border-color: var(--c-primary-light); }
@@ -1011,119 +1083,116 @@ pre {
 }
 
 .settings-theme__swatch {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     border: 1px solid var(--border-strong);
 }
 .settings-theme__name {
-    font-size: 0.68rem;
+    font-size: 0.62rem;
     font-weight: 600;
     color: var(--text-secondary);
     text-align: center;
+    line-height: 1.2;
 }
 
-/* Font size controls */
-.settings-font {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    justify-content: center;
-}
-
-.settings-font__btn {
-    width: 36px;
-    height: 36px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--bg-surface);
-    color: var(--text);
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-sans);
-}
-.settings-font__btn:hover { border-color: var(--c-primary); color: var(--c-primary); }
-.settings-font__btn:disabled { opacity: 0.3; cursor: not-allowed; }
-
-.settings-font__display {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    min-width: 50px;
-    text-align: center;
-    font-weight: 600;
-}
-
-/* Font theme picker — horizontal list of buttons */
+/* --- Font theme grid --- */
 .settings-fonts {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.4rem;
+    gap: 0.35rem;
 }
 
 .settings-font-choice {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.15rem;
-    padding: 0.5rem 0.6rem;
+    gap: 0.1rem;
+    padding: 0.45rem 0.55rem;
     border: 1px solid var(--border);
     border-radius: 8px;
     cursor: pointer;
     background: var(--bg-surface);
-    transition: var(--transition);
+    transition: border-color 0.15s, background 0.15s;
     text-align: left;
     font-family: var(--font-sans);
 }
-
-.settings-font-choice:hover {
-    border-color: var(--c-primary-light);
-}
-
+.settings-font-choice:hover { border-color: var(--c-primary-light); }
 .settings-font-choice.active {
     border-color: var(--c-primary);
     background: var(--c-primary-pale);
 }
 
 .settings-font-choice__name {
-    font-size: 0.76rem;
+    font-size: 0.72rem;
     font-weight: 700;
     color: var(--text);
 }
-
 .settings-font-choice__sample {
-    font-size: 0.66rem;
+    font-size: 0.6rem;
     color: var(--text-muted);
     line-height: 1.3;
 }
 
-/* Reading width toggle */
+/* --- Size controls row --- */
+.settings-size {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.settings-size__btn {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-surface);
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+}
+.settings-size__btn:hover { border-color: var(--c-primary); color: var(--c-primary); }
+.settings-size__btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.settings-size__display {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    min-width: 48px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* --- Toggle rows (wide, contrast, etc.) --- */
 .settings-toggle {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5rem 0;
+    padding: 0.4rem 0;
 }
 
 .settings-toggle__label {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     color: var(--text-secondary);
     font-weight: 500;
 }
 
 .settings-toggle__switch {
     position: relative;
-    width: 40px;
-    height: 22px;
+    width: 38px;
+    height: 20px;
     background: var(--border-strong);
-    border-radius: 11px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: var(--transition);
+    transition: background 0.2s;
     border: none;
+    flex-shrink: 0;
 }
 .settings-toggle__switch.on { background: var(--c-primary); }
 .settings-toggle__switch::after {
@@ -1131,8 +1200,8 @@ pre {
     position: absolute;
     top: 2px;
     left: 2px;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     background: #fff;
     border-radius: 50%;
     transition: transform 0.2s ease;
@@ -1140,19 +1209,31 @@ pre {
 }
 .settings-toggle__switch.on::after { transform: translateX(18px); }
 
-[data-theme="midnight"], [data-theme="moss"], [data-theme="onyx"] .settings-panel {
+/* --- Contrast toggle specific --- */
+.settings-toggle__switch--contrast.on { background: var(--c-accent); }
+
+/* --- Dark theme overrides for settings panel --- */
+[data-theme="midnight"] .settings-panel,
+[data-theme="moss"] .settings-panel,
+[data-theme="onyx"] .settings-panel {
     background: var(--bg-alt);
     border-color: var(--border-strong);
 }
-[data-theme="midnight"], [data-theme="moss"], [data-theme="onyx"] .settings-theme {
+[data-theme="midnight"] .settings-theme,
+[data-theme="moss"] .settings-theme,
+[data-theme="onyx"] .settings-theme {
     background: var(--bg-surface);
     border-color: var(--border);
 }
-[data-theme="midnight"], [data-theme="moss"], [data-theme="onyx"] .settings-theme.active {
+[data-theme="midnight"] .settings-theme.active,
+[data-theme="moss"] .settings-theme.active,
+[data-theme="onyx"] .settings-theme.active {
     border-color: var(--c-primary);
     background: var(--c-primary-pale);
 }
-[data-theme="midnight"], [data-theme="moss"], [data-theme="onyx"] .settings-font__btn {
+[data-theme="midnight"] .settings-size__btn,
+[data-theme="moss"] .settings-size__btn,
+[data-theme="onyx"] .settings-size__btn {
     background: var(--bg-surface);
     color: var(--text);
     border-color: var(--border);

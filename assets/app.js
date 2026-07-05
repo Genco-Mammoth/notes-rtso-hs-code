@@ -85,6 +85,8 @@
     var VALID_FONTS = ['modern', 'system', 'editorial', 'humanist'];
     var FONT_SIZES = ['small', 'normal', 'large'];
     var FONT_LABELS = { small: 'A\u2212', normal: 'A', large: 'A+' };
+    var LINE_HEIGHTS = ['comfort', 'reading', 'relaxed'];
+    var LINE_HEIGHT_LABELS = { comfort: 'Comfort', reading: 'Reading', relaxed: 'Relaxed' };
 
     // ======== STORAGE ========
     function store(key, val) { try { localStorage.setItem(key, val); } catch(e) {} }
@@ -130,8 +132,12 @@
         var ft = read('hs1515-font', 'modern');
         var fs = read('hs1515-fontsize', 'normal');
         var wd = read('hs1515-width', 'normal');
+        var co = read('hs1515-contrast', 'normal');
+        var lh = read('hs1515-lineheight', 'reading');
         var widthOn = wd === 'wide' ? ' on' : '';
+        var contrastOn = co === 'soft' ? ' on' : '';
         var fl = FONT_LABELS[fs] || 'A';
+        var lhLabel = LINE_HEIGHT_LABELS[lh] || 'Reading';
 
         var h = '';
         h += '<div class="settings-panel" id="settings-panel">';
@@ -162,26 +168,46 @@
         h +=   '</div>';
         h += '</div>';
 
-        // Text size
+        // Text size + Line height side by side
         h += '<div class="settings-panel__section">';
-        h +=   '<div class="settings-panel__label">Text Size</div>';
-        h +=   '<div class="settings-font">';
-        h +=     '<button class="settings-font__btn" id="font-decrease" aria-label="Decrease font size">&minus;</button>';
-        h +=     '<span class="settings-font__display" id="font-display">' + fl + '</span>';
-        h +=     '<button class="settings-font__btn" id="font-increase" aria-label="Increase font size">+</button>';
+        h +=   '<div class="settings-panel__label">Text Size &amp; Spacing</div>';
+        h +=   '<div style="display:flex;gap:1rem;align-items:stretch">';
+
+        // Text size
+        h +=     '<div style="flex:1">';
+        h +=     '<div class="settings-size" style="justify-content:flex-start">';
+        h +=       '<button class="settings-size__btn" id="font-decrease" aria-label="Decrease">&minus;</button>';
+        h +=       '<span class="settings-size__display" id="font-display">' + fl + '</span>';
+        h +=       '<button class="settings-size__btn" id="font-increase" aria-label="Increase">+</button>';
+        h +=     '</div>';
+        h +=     '</div>';
+
+        // Line height
+        h +=     '<div style="flex:1">';
+        h +=     '<div class="settings-size" style="justify-content:flex-start">';
+        h +=       '<button class="settings-size__btn" id="lh-decrease" aria-label="Tighter">&minus;</button>';
+        h +=       '<span class="settings-size__display" id="lh-display">' + lhLabel + '</span>';
+        h +=       '<button class="settings-size__btn" id="lh-increase" aria-label="Looser">+</button>';
+        h +=     '</div>';
+        h +=     '</div>';
+
         h +=   '</div>';
         h += '</div>';
 
-        // Width toggle
-        h += '<div class="settings-panel__section">';
+        // Toggles
+        h += '<div class="settings-panel__section" style="border-bottom:none;padding-bottom:0">';
         h +=   '<div class="settings-toggle">';
         h +=     '<span class="settings-toggle__label">Wide Reading</span>';
-        h +=     '<button class="settings-toggle__switch' + widthOn + '" id="width-toggle" aria-label="Toggle wide reading mode"></button>';
+        h +=     '<button class="settings-toggle__switch' + widthOn + '" id="width-toggle" aria-label="Wide reading"></button>';
+        h +=   '</div>';
+        h +=   '<div class="settings-toggle">';
+        h +=     '<span class="settings-toggle__label">Soft Contrast</span>';
+        h +=     '<button class="settings-toggle__switch settings-toggle__switch--contrast' + contrastOn + '" id="contrast-toggle" aria-label="Soft contrast"></button>';
         h +=   '</div>';
         h += '</div>';
 
         // Print
-        h += '<div class="settings-panel__section">';
+        h += '<div class="settings-panel__section" style="margin-top:0.3rem;border-bottom:none;padding-bottom:0">';
         h +=   '<button class="print-btn" data-action="print" style="width:100%;justify-content:center">&#128424; Print / Save as PDF</button>';
         h += '</div>';
 
@@ -276,6 +302,15 @@
         var wd = read('hs1515-width', 'normal');
         document.documentElement.setAttribute('data-width', wd);
 
+        // Contrast
+        var co = read('hs1515-contrast', 'normal');
+        document.documentElement.setAttribute('data-contrast', co);
+
+        // Line height
+        var lh = read('hs1515-lineheight', 'reading');
+        if (LINE_HEIGHTS.indexOf(lh) === -1) lh = 'reading';
+        document.documentElement.setAttribute('data-lineheight', lh);
+
         // Update settings UI
         document.querySelectorAll('.settings-theme').forEach(function(el) {
             el.classList.toggle('active', el.getAttribute('data-theme') === ct);
@@ -285,8 +320,12 @@
         });
         var fd = document.getElementById('font-display');
         if (fd) fd.textContent = FONT_LABELS[fs] || 'A';
+        var ld = document.getElementById('lh-display');
+        if (ld) ld.textContent = LINE_HEIGHT_LABELS[lh] || 'Reading';
         var wt = document.getElementById('width-toggle');
         if (wt) wt.classList.toggle('on', wd === 'wide');
+        var ctBtn = document.getElementById('contrast-toggle');
+        if (ctBtn) ctBtn.classList.toggle('on', co === 'soft');
     }
 
     // ======== STEP 3: BIND EVENTS ========
@@ -355,6 +394,24 @@
             });
         }
 
+        // --- Contrast toggle ---
+        var cBtn = document.getElementById('contrast-toggle');
+        if (cBtn) {
+            cBtn.addEventListener('click', function() {
+                var cur = document.documentElement.getAttribute('data-contrast');
+                var next = cur === 'soft' ? 'normal' : 'soft';
+                store('hs1515-contrast', next);
+                document.documentElement.setAttribute('data-contrast', next);
+                cBtn.classList.toggle('on', next === 'soft');
+            });
+        }
+
+        // --- Line height buttons ---
+        var lhDec = document.getElementById('lh-decrease');
+        var lhInc = document.getElementById('lh-increase');
+        if (lhDec) lhDec.addEventListener('click', function() { changeLineHeight(-1); });
+        if (lhInc) lhInc.addEventListener('click', function() { changeLineHeight(1); });
+
         // --- Print button ---
         document.querySelectorAll('[data-action="print"]').forEach(function(btn) {
             btn.addEventListener('click', function(e) {
@@ -404,6 +461,23 @@
         var inc = document.getElementById('font-increase');
         if (dec) dec.disabled = (idx === 0);
         if (inc) inc.disabled = (idx === FONT_SIZES.length - 1);
+    }
+
+    // ======== LINE HEIGHT LOGIC ========
+    function changeLineHeight(delta) {
+        var cur = read('hs1515-lineheight', 'reading');
+        var idx = LINE_HEIGHTS.indexOf(cur);
+        if (idx === -1) idx = 1;
+        idx = Math.max(0, Math.min(LINE_HEIGHTS.length - 1, idx + delta));
+        var ns = LINE_HEIGHTS[idx];
+        store('hs1515-lineheight', ns);
+        document.documentElement.setAttribute('data-lineheight', ns);
+        var ld = document.getElementById('lh-display');
+        if (ld) ld.textContent = LINE_HEIGHT_LABELS[ns] || 'Reading';
+        var dec = document.getElementById('lh-decrease');
+        var inc = document.getElementById('lh-increase');
+        if (dec) dec.disabled = (idx === 0);
+        if (inc) inc.disabled = (idx === LINE_HEIGHTS.length - 1);
     }
 
     // ======== DROPDOWN LOGIC ========
