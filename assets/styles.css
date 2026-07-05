@@ -52,9 +52,130 @@
     animation: page-enter 0.3s ease;
 }
 
+/* Hide page content when not authenticated (prevents flash) */
+.no-auth .page,
+.no-auth .site-header,
+.no-auth .site-nav,
+.no-auth .site-footer {
+    display: none !important;
+}
+
 @keyframes page-enter {
     from { opacity: 0; transform: translateY(4px); }
     to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   LOGIN OVERLAY — OTP-style password entry
+   ============================================ */
+
+.login-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.login-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.login-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    max-width: 440px;
+    width: 90%;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+}
+
+.login-card__icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.login-card__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--c-primary-dark);
+    margin-bottom: 0.3rem;
+}
+
+[data-theme="midnight"] .login-card__title,
+[data-theme="moss"] .login-card__title,
+[data-theme="onyx"] .login-card__title {
+    color: var(--c-primary-light);
+}
+
+.login-card__subtitle {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 1.8rem;
+}
+
+.login-otp {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+}
+
+.login-otp__box {
+    width: 44px;
+    height: 52px;
+    border: 2px solid var(--border-strong);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: var(--text);
+    background: var(--bg-surface);
+    caret-color: var(--c-primary);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-otp__box:focus {
+    border-color: var(--c-primary);
+    box-shadow: 0 0 0 3px var(--c-primary-pale);
+}
+
+.login-otp__box.error {
+    border-color: var(--c-danger);
+    animation: shake 0.4s ease;
+}
+
+.login-otp__box.success {
+    border-color: var(--c-success);
+}
+
+.login-card__error {
+    font-size: 0.78rem;
+    color: var(--c-danger);
+    min-height: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-4px); }
+}
+
+@media (max-width: 480px) {
+    .login-otp { gap: 0.3rem; }
+    .login-otp__box { width: 36px; height: 44px; font-size: 1.1rem; }
+    .login-card { padding: 2rem 1.2rem; }
 }
 
 /* ============================================
@@ -2504,6 +2625,8 @@ dd {
     .site-footer,
     .settings-btn,
     .settings-panel,
+    .login-overlay,
+    .page-loader,
     .breadcrumb {
         display: none !important;
     }

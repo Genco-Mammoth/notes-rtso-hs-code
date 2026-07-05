@@ -440,21 +440,180 @@
 
     // ======== INIT: SINGLE SEQUENTIAL FLOW ========
     function init() {
-        // Step 0: Show loader
-        var loader = document.createElement('div');
-        loader.className = 'page-loader';
-        loader.innerHTML = '<div class="page-loader__bar"></div>';
-        document.body.insertBefore(loader, document.body.firstChild);
-        // Remove loader after animation
-        setTimeout(function() {
-            if (loader.parentNode) loader.parentNode.removeChild(loader);
-        }, 400);
+        // Step 0: Check authentication
+        if (!isAuthenticated()) {
+            showLoginOverlay();
+            return; // Stop — don't inject templates until authenticated
+        }
+
+        // Step 0.5: Show loader
+        showLoader();
 
         // Step 1: Inject templates (creates all DOM elements)
         injectTemplates();
         // Step 2: Apply persisted preferences (updates UI state)
         applyPreferences();
         // Step 3: Bind all events (elements now exist)
+        bindEvents();
+    }
+
+    // ======== AUTHENTICATION ========
+    var AUTH_KEY = 'hs1515-auth';
+    var PASSWORD_HASH = '5599d3a0adb0f9febc5e47140a24decff2d61a3bdd225e6f42bafa91cc7e6dd8';
+
+    function isAuthenticated() {
+        try { return localStorage.getItem(AUTH_KEY) === '1'; }
+        catch(e) { return false; }
+    }
+
+    function showLoader() {
+        var loader = document.createElement('div');
+        loader.className = 'page-loader';
+        loader.innerHTML = '<div class="page-loader__bar"></div>';
+        document.body.insertBefore(loader, document.body.firstChild);
+        setTimeout(function() {
+            if (loader.parentNode) loader.parentNode.removeChild(loader);
+        }, 400);
+    }
+
+    function showLoginOverlay() {
+        // Hide page content
+        var page = document.querySelector('.page');
+        if (page) page.style.display = 'none';
+
+        // Create overlay
+        var overlay = document.createElement('div');
+        overlay.id = 'login-overlay';
+        overlay.className = 'login-overlay';
+
+        overlay.innerHTML = '<div class="login-card">' +
+            '<div class="login-card__icon">&#128274;</div>' +
+            '<div class="login-card__title">Access Restricted</div>' +
+            '<div class="login-card__subtitle">Enter the access code to continue</div>' +
+            '<div class="login-otp" id="login-otp">' +
+                '<input class="login-otp__box" type="password" maxlength="1" inputmode="text" autocomplete="off">' +
+                '<input class="login-otp__box" type="password" maxlength="1" inputmode="text" autocomplete="off">' +
+                '<input class="login-otp__box" type="password" maxlength="1" inputmode="text" autocomplete="off">' +
+                '<input class="login-otp__box" type="password" maxlength="1" inputmode="text" autocomplete="off">' +
+                '<input class="login-otp__box" type="password" maxlength="1" inputmode="text" autocomplete="off">' +
+                '<input class="login-otp__box" type="password" maxlength="1" inputmode="text" autocomplete="off">' +
+                '<input class="login-otp__box" type="password" maxlength="1" inputmode="text" autocomplete="off">' +
+            '</div>' +
+            '<div class="login-card__error" id="login-error"></div>' +
+        '</div>';
+
+        document.body.insertBefore(overlay, document.body.firstChild);
+
+        setupLoginBoxes();
+    }
+
+    function setupLoginBoxes() {
+        var boxes = document.querySelectorAll('.login-otp__box');
+        var errorEl = document.getElementById('login-error');
+
+        // Focus first box
+        if (boxes.length > 0) boxes[0].focus();
+
+        boxes.forEach(function(box, i) {
+            box.addEventListener('input', function() {
+                var val = this.value;
+                // Move to next box if filled
+                if (val.length === 1 && i < boxes.length - 1) {
+                    boxes[i + 1].focus();
+                }
+                // Check if all boxes filled
+                checkPassword();
+            });
+
+            box.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && this.value === '' && i > 0) {
+                    boxes[i - 1].focus();
+                }
+                if (e.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+
+            box.addEventListener('paste', function(e) {
+                e.preventDefault();
+                var pasted = (e.clipboardData || window.clipboardData).getData('text');
+                for (var j = 0; j < boxes.length && j < pasted.length; j++) {
+                    boxes[j].value = pasted[j];
+                }
+                if (pasted.length < boxes.length) {
+                    boxes[pasted.length].focus();
+                }
+                checkPassword();
+            });
+        });
+
+        function checkPassword() {
+            // Get entered password
+            var entered = '';
+            boxes.forEach(function(b) { entered += b.value; });
+
+            // Clear error states
+            boxes.forEach(function(b) { b.classList.remove('error', 'success'); });
+            if (errorEl) errorEl.textContent = '';
+
+            // Not all filled yet
+            if (entered.length < boxes.length) return;
+
+            // Hash and compare
+            hashPassword(entered).then(function(hash) {
+                if (hash === PASSWORD_HASH) {
+                    // Success
+                    boxes.forEach(function(b) { b.classList.add('success'); });
+                    authenticate();
+                } else {
+                    // Wrong
+                    boxes.forEach(function(b) { b.classList.add('error'); });
+                    if (errorEl) errorEl.textContent = 'Incorrect code. Please try again.';
+                    // Clear boxes after delay
+                    setTimeout(function() {
+                        boxes.forEach(function(b) { b.value = ''; b.classList.remove('error'); });
+                        boxes[0].focus();
+                    }, 600);
+                }
+            });
+        }
+    }
+
+    function hashPassword(str) {
+        // SHA-256 via SubtleCrypto API
+        var encoder = new TextEncoder();
+        var data = encoder.encode(str);
+        return crypto.subtle.digest('SHA-256', data).then(function(hash) {
+            return Array.from(new Uint8Array(hash))
+                .map(function(b) { return b.toString(16).padStart(2, '0'); })
+                .join('');
+        });
+    }
+
+    function authenticate() {
+        try { localStorage.setItem(AUTH_KEY, '1'); }
+        catch(e) {}
+
+        // Remove no-auth class to show content
+        document.documentElement.classList.remove('no-auth');
+
+        // Remove overlay
+        var overlay = document.getElementById('login-overlay');
+        if (overlay) {
+            overlay.classList.add('hidden');
+            setTimeout(function() {
+                if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+            }, 450);
+        }
+
+        // Show page
+        var page = document.querySelector('.page');
+        if (page) page.style.display = '';
+
+        // Now initialize the rest
+        showLoader();
+        injectTemplates();
+        applyPreferences();
         bindEvents();
     }
 
