@@ -45,6 +45,7 @@
         {
             label: 'Comparables',
             items: [
+                { href: 'comparable-palm.html', text: 'Palm Oil — CPO, CPKO, RBD' },
                 { href: 'comparable-pome.html', text: 'POME — Palm Mill Effluent' },
                 { href: 'comparable-uco.html', text: 'UCO — Used Cooking Oil' },
                 { href: 'comparable-cto.html', text: 'CTO — Crude Tall Oil' },
