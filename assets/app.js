@@ -440,6 +440,16 @@
 
     // ======== INIT: SINGLE SEQUENTIAL FLOW ========
     function init() {
+        // Step 0: Show loader
+        var loader = document.createElement('div');
+        loader.className = 'page-loader';
+        loader.innerHTML = '<div class="page-loader__bar"></div>';
+        document.body.insertBefore(loader, document.body.firstChild);
+        // Remove loader after animation
+        setTimeout(function() {
+            if (loader.parentNode) loader.parentNode.removeChild(loader);
+        }, 400);
+
         // Step 1: Inject templates (creates all DOM elements)
         injectTemplates();
         // Step 2: Apply persisted preferences (updates UI state)

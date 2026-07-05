@@ -15,8 +15,51 @@
 }
 
 /* ============================================
+   PAGE LOADER — Top progress bar
+   Animates 0→100% in ~0.35s on page load,
+   then fades out. Fixed at very top of viewport.
+   ============================================ */
+
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.page-loader__bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--c-primary), var(--c-accent), var(--c-primary));
+    background-size: 200% 100%;
+    border-radius: 0 2px 2px 0;
+    transition: opacity 0.2s ease;
+    animation: loader-slide 0.35s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes loader-slide {
+    0%   { width: 0; opacity: 1; }
+    30%  { width: 30%; opacity: 1; }
+    70%  { width: 85%; opacity: 1; }
+    100% { width: 100%; opacity: 0; }
+}
+
+/* Fade-in content on page load */
+.page {
+    animation: page-enter 0.3s ease;
+}
+
+@keyframes page-enter {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
    THEME ARCHITECTURE
-   6 themes via [data-theme] on <html>
+   8 themes via [data-theme] on <html>
    ============================================ */
 
 /* --- Theme 1: EU Blue (default) --- */
