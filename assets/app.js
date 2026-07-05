@@ -43,6 +43,15 @@
             ]
         },
         {
+            label: 'Comparables',
+            items: [
+                { href: 'comparable-pome.html', text: 'POME — Palm Mill Effluent' },
+                { href: 'comparable-uco.html', text: 'UCO — Used Cooking Oil' },
+                { href: 'comparable-cto.html', text: 'CTO — Crude Tall Oil' },
+                { href: 'code-38231930.html', text: 'PFAD — Palm Fatty Acid Distillate' }
+            ]
+        },
+        {
             label: 'Reference',
             items: [
                 { href: 'measures.html', text: 'Non-Tariff Measures' },
