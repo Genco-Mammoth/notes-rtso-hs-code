@@ -3228,7 +3228,7 @@ dd {
     transition: max-height 0.35s ease, padding 0.35s ease;
 }
 .faq-item--open .faq-answer {
-    max-height: 800px;
+    max-height: 2000px;
 }
 
 .faq-answer__inner {
