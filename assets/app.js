@@ -64,14 +64,14 @@
     ];
 
     var THEMES = [
-        { id: 'eu-blue', name: 'EU Blue', swatch: '#003399' },
-        { id: 'botanical', name: 'Botanical', swatch: '#1B4332' },
-        { id: 'amber', name: 'Amber Oil', swatch: '#D97706' },
-        { id: 'slate', name: 'Slate', swatch: '#1E293B' },
-        { id: 'midnight', name: 'Midnight', swatch: '#0B1120' },
-        { id: 'moss', name: 'Moss', swatch: '#061210' },
-        { id: 'onyx', name: 'Onyx', swatch: '#18181B' },
-        { id: 'crimson', name: 'Crimson', swatch: '#991B1B' }
+        { id: 'eu-blue', name: 'Nordic', swatch: '#1A365D' },
+        { id: 'botanical', name: 'Forest', swatch: '#2D5A27' },
+        { id: 'amber', name: 'Ochre', swatch: '#6B4936' },
+        { id: 'slate', name: 'Slate', swatch: '#3D4A5C' },
+        { id: 'midnight', name: 'Midnight', swatch: '#0F1B2D' },
+        { id: 'moss', name: 'Moss', swatch: '#0A1C12' },
+        { id: 'onyx', name: 'Onyx', swatch: '#1A1616' },
+        { id: 'crimson', name: 'Burgundy', swatch: '#8A3E3A' }
     ];
 
     var FONT_THEMES = [
