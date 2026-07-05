@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Interactive FAQ — EU import duties for vegetable oils, rubber seed oil classification, GSP, ADD, and practical importing. Search, filter, and browse 35+ questions.">
+<meta name="description" content="Interactive FAQ — EU import duties for vegetable oils, rubber seed oil classification, GSP, ADD, and practical importing.">
 <title>FAQ — Tariff Analysis Report</title>
 <script>(function(){try{var t=localStorage.getItem("hs1515-theme")||"eu-blue";document.documentElement.setAttribute("data-theme",t);var ft=localStorage.getItem("hs1515-font")||"modern";document.documentElement.setAttribute("data-font",ft);var f=localStorage.getItem("hs1515-fontsize")||"normal";document.documentElement.setAttribute("data-fontsize",f);var w=localStorage.getItem("hs1515-width")||"normal";document.documentElement.setAttribute("data-width",w);var a=localStorage.getItem("hs1515-auth");if(a!=="1"){document.documentElement.classList.add("no-auth")}}catch(e){}})();</script>
 <link rel="stylesheet" href="assets/styles.css">
@@ -12,907 +12,395 @@
 <div id="tpl-header"></div>
 <div id="tpl-nav"></div>
 <main class="page">
-    <div class="print-only print-title">
-        <h1>Frequently Asked Questions</h1>
-        <span class="print-title__badge">4 July 2026</span>
-    </div>
-    <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb__sep">/</span>
-        <span>FAQ</span>
-    </div>
-    <div class="page-header">
-        <h1>Frequently Asked Questions</h1>
-        <div class="page-header__meta">
-            <span class="meta-pill meta-pill--gold">35+ questions</span>
-            <span class="meta-pill">Searchable</span>
-            <span class="meta-pill">Filterable</span>
-            <span class="meta-pill">Accordion</span>
-        </div>
-        <p class="lead">
-            Click any question to expand the answer. Use the search bar to find specific topics,
-            or filter by category. <strong>The first question is open to get you started.</strong>
-            All answers verified against current EU regulations.
-        </p>
-    </div>
+<div class="print-only print-title">
+<h1>Frequently Asked Questions</h1>
+<span class="print-title__badge">4 July 2026</span>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb__sep">/</span><span>FAQ</span></div>
+<div class="page-header">
+<h1>Frequently Asked Questions</h1>
+<div class="page-header__meta">
+<span class="meta-pill meta-pill--gold">35 questions</span>
+<span class="meta-pill">Search</span>
+<span class="meta-pill">Filter</span>
+<span class="meta-pill">Accordion</span>
+</div>
+<p class="lead">Click any question to reveal the answer. Use search and category filters to find what you need. The first question is open to get you started.</p>
+</div>
 
-    <!-- Search + Controls -->
-    <div class="faq-toolbar">
-        <div class="faq-search">
-            <span class="faq-search__icon">&#128269;</span>
-            <input type="text" class="faq-search__input" id="faq-search-input" placeholder="Search questions…" autocomplete="off">
-            <button class="faq-search__clear" id="faq-search-clear" aria-label="Clear search">&times;</button>
-        </div>
-        <div class="faq-controls">
-            <button class="faq-controls__btn" id="faq-expand-all">+ Expand All</button>
-            <button class="faq-controls__btn" id="faq-collapse-all">&minus; Collapse All</button>
-        </div>
-    </div>
+<!-- Search + Controls -->
+<div class="faq-bar">
+<div class="faq-search">
+<svg class="faq-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+<input type="text" class="faq-search__input" id="faq-search-input" placeholder="Search questions…" autocomplete="off">
+<button class="faq-search__clear" id="faq-search-clear" aria-label="Clear">&#10005;</button>
+</div>
+<div class="faq-actions">
+<button class="faq-actions__btn" id="faq-expand-all">Expand all</button>
+<button class="faq-actions__btn" id="faq-collapse-all">Collapse all</button>
+</div>
+</div>
 
-    <!-- Category filters -->
-    <div class="faq-categories" id="faq-categories">
-        <button class="faq-category faq-category--active" data-cat="all">All</button>
-        <button class="faq-category" data-cat="classification">Classification</button>
-        <button class="faq-category" data-cat="duties">Duties</button>
-        <button class="faq-category" data-cat="defence">Trade Defence</button>
-        <button class="faq-category" data-cat="blending">Blending</button>
-        <button class="faq-category" data-cat="practical">Practical</button>
-        <button class="faq-category" data-cat="eudr">EUDR</button>
-        <button class="faq-category" data-cat="advanced">Advanced</button>
-    </div>
+<div class="faq-filters" id="faq-filters">
+<button class="faq-filter is-active" data-cat="all">All</button>
+<button class="faq-filter" data-cat="classification">Classification</button>
+<button class="faq-filter" data-cat="duties">Duties</button>
+<button class="faq-filter" data-cat="defence">Trade Defence</button>
+<button class="faq-filter" data-cat="blending">Blending</button>
+<button class="faq-filter" data-cat="practical">Practical</button>
+<button class="faq-filter" data-cat="eudr">EUDR</button>
+<button class="faq-filter" data-cat="advanced">Advanced</button>
+</div>
 
-    <!-- Results count -->
-    <div class="faq-results" id="faq-results">Showing 35 questions</div>
+<div class="faq-meta" id="faq-meta">Showing 35 questions</div>
 
-    <!-- Empty state (hidden by default) -->
-    <div class="faq-empty" id="faq-empty" style="display:none">
-        <div class="faq-empty__icon">&#128270;</div>
-        <div class="faq-empty__text">No questions match your search or filter.</div>
-        <div class="faq-empty__hint">Try different keywords or clear your filters.</div>
-    </div>
+<div class="faq-empty" id="faq-empty">
+<div class="faq-empty__icon">&#128270;</div>
+<div class="faq-empty__text">No results found.</div>
+<div class="faq-empty__hint">Try different keywords or clear your filters.</div>
+</div>
 
-    <!-- ====== ACCORDION LIST ====== -->
-    <div class="faq-list" id="faq-list">
+<div class="faq-items" id="faq-items">
 
-        <!-- ======== CLASSIFICATION ======== -->
-        <div class="faq-item faq-item--open" data-cats="classification" id="q1">
-            <button class="faq-question" aria-expanded="true">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q1 &middot; Classification</div>
-                    <div class="faq-question__text">What HS code should I use for crude rubber seed oil?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>Crude rubber seed oil for industrial use (e.g., biodiesel feedstock) should be classified under <strong>CN <code>1515 90 40</code></strong> (crude fixed vegetable oils for technical or industrial use) at <strong>3.2% MFN duty</strong>.</p>
-                <p>If the oil is intended for food or cosmetic use, the correct code is <strong><code>1515 90 59</code></strong> (6.4% MFN). The critical distinction is <strong>declared end-use</strong>, not chemical composition. See the <a href="classification-guide.html">Classification Guide</a> for the full decision tree.</p>
-            </div></div>
-        </div>
+<!-- CLASSIFICATION -->
+<div class="faq-item is-open" data-cat="classification" id="q1">
+<button class="faq-q" aria-expanded="true"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Classification</span><span class="faq-q__text">What HS code should I use for crude rubber seed oil?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>Crude rubber seed oil for industrial use (e.g., biodiesel feedstock) should be classified under <strong>CN <code>1515 90 40</code></strong> (crude fixed vegetable oils for technical or industrial use) at <strong>3.2% MFN duty</strong>.</p>
+<p>If the oil is intended for food or cosmetic use, the correct code is <code>1515 90 59</code> at 6.4% MFN. The critical distinction is <strong>declared end-use</strong>, not chemical composition. See the <a href="classification-guide.html">Classification Guide</a>.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="classification" id="q2">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q2 &middot; Classification</div>
-                    <div class="faq-question__text">My rubber seed oil has 30% FFA. Does that make it an &ldquo;acid oil&rdquo; under Chapter 38?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>No.</strong> High FFA alone does not move a crude vegetable oil from Chapter 15 to Chapter 38. Heading 3823 (&ldquo;acid oils from refining&rdquo;) covers the <em>acidulated by-product of alkali refining</em> (soapstock treated with acid) — not a crude oil that naturally has high FFA due to fruit/seed deterioration.</p>
-                <p>Classification follows the <strong>manufacturing process</strong>, not the chemical composition. A naturally high-FFA pressed oil remains a Chapter 15 product. See <a href="code-38231990.html">3823 19 90 analysis</a>.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="classification" id="q2">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Classification</span><span class="faq-q__text">My oil has 30% FFA — does that make it an &ldquo;acid oil&rdquo; under Chapter 38?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>No.</strong> High FFA alone does not move a crude vegetable oil from Chapter 15 to Chapter 38. Heading 3823 covers the <em>acidulated by-product of alkali refining</em> — soapstock treated with acid — not a crude oil that has naturally high FFA.</p>
+<p>Classification follows the <strong>manufacturing process</strong>, not chemical composition. A naturally high-FFA pressed oil remains in Chapter 15. See <a href="code-38231990.html">3823 19 90 analysis</a>.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="classification" id="q3">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q3 &middot; Classification</div>
-                    <div class="faq-question__text">Can I classify my oil under 3823 19 30 (PFAD) to get 2.9% instead of 3.2%?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>Only if your product is genuinely a <strong>fatty acid distillate from physical refining</strong> (steam deodorisation of a previously refined oil). Rubber seed oil is a primary mechanically-extracted oil, not a refining by-product distillate.</p>
-                <p>Classifying crude RSO under <code>3823 19 30</code> would be misclassification. The 0.3 percentage point duty saving is not worth the audit risk — potential back-duties, interest, and penalties. See <a href="code-38231930.html">3823 19 30 analysis</a>.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="classification" id="q3">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Classification</span><span class="faq-q__text">Can I use PFAD code 3823 19 30 at 2.9% instead of 3.2%?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>Only if your product is genuinely a <strong>fatty acid distillate from physical refining</strong>. Rubber seed oil is a primary extracted oil, not a refining by-product. Classifying crude RSO under <code>3823 19 30</code> would be misclassification.</p>
+<p>The 0.3pp saving is not worth the audit risk — back-duties, interest, and penalties. See <a href="code-38231930.html">3823 19 30 analysis</a>.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="classification" id="q4">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q4 &middot; Classification</div>
-                    <div class="faq-question__text">What is a BTI and do I need one?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>A <strong>Binding Tariff Information (BTI)</strong> is a legally binding classification ruling issued by an EU Member State customs authority. It confirms the correct CN code for your specific product and is binding across all 27 Member States for up to 3 years.</p>
-                <p><strong>Strongly recommended</strong> for any product imported regularly or in volume, especially where the classification depends on end-use (like <code>1515 90 40</code> vs. <code>1515 90 59</code>). Having a BTI eliminates classification risk and protects against post-clearance reclassification. Apply through the <a href="https://ec.europa.eu/taxation_customs/dds2/bti/" target="_blank">EU BTI system (EBTI)</a>.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="classification" id="q4">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Classification</span><span class="faq-q__text">What is a BTI and do I need one?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>A <strong>Binding Tariff Information (BTI)</strong> is a legally binding classification ruling from an EU customs authority. It confirms the correct CN code and is binding across all 27 Member States for up to 3 years.</p>
+<p><strong>Strongly recommended</strong> for any regular or high-volume import, especially where classification depends on end-use (<code>1515 90 40</code> vs. <code>1515 90 59</code>). Apply via the <a href="https://ec.europa.eu/taxation_customs/dds2/bti/" target="_blank">EU BTI system</a>.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="classification" id="q5">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q5 &middot; Classification</div>
-                    <div class="faq-question__text">Does filtering or winterisation make an oil &ldquo;refined&rdquo;?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>No.</strong> Mechanical filtering to remove seed meal, sediment, or solid impurities does <em>not</em> change crude status. Winterisation (chilling to remove waxes) is also considered a physical process that preserves crude classification.</p>
-                <p>However, <strong>degumming, neutralisation (alkali refining), bleaching, or deodorisation</strong> do make the oil &ldquo;refined&rdquo; for CN purposes — moving it from codes <code>40/51/59</code> (crude) to <code>60/91/99</code> (refined) with higher duty rates.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="classification" id="q5">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Classification</span><span class="faq-q__text">Does filtering or winterisation make an oil &ldquo;refined&rdquo;?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>No.</strong> Mechanical filtering and winterisation are physical processes that preserve crude status. They remove solids or waxes without altering the oil's chemical structure.</p>
+<p>However, <strong>degumming, neutralisation, bleaching, or deodorisation</strong> make the oil &ldquo;refined&rdquo; — moving it from codes <code>40/51/59</code> (crude) to <code>60/91/99</code> (refined) with higher duties.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="classification" id="q6">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q6 &middot; Classification</div>
-                    <div class="faq-question__text">How do I document &ldquo;industrial use&rdquo; for 1515 90 40?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>The end-use declaration is the critical document for claiming <code>1515 90 40</code> (3.2%) instead of <code>1515 90 59</code> (6.4%). You need:</p>
-                <ul>
-                    <li>A <strong>written end-use declaration</strong> stating the oil is exclusively for technical/industrial purposes (not human or animal consumption, not cosmetic)</li>
-                    <li>Supporting evidence: contract with biodiesel producer, refinery processing agreement, or internal production records showing the oil enters an industrial process</li>
-                    <li>The declaration should specify the <strong>specific industrial use</strong> (e.g., &ldquo;feedstock for biodiesel production via transesterification&rdquo;)</li>
-                </ul>
-                <p>Customs may require the importer to maintain records demonstrating the oil was actually used as declared. Some Member States require an <strong>end-use authorisation</strong> in advance under the TARIC end-use procedure.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="classification" id="q6">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Classification</span><span class="faq-q__text">How do I document &ldquo;industrial use&rdquo; for 1515 90 40?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>You need: (1) a <strong>written end-use declaration</strong> stating the oil is exclusively for technical/industrial purposes; (2) supporting evidence (contract with biodiesel producer, refinery agreement); (3) specification of the <strong>specific industrial use</strong> (e.g., &ldquo;feedstock for biodiesel production&rdquo;).</p>
+<p>Some Member States require an advance <strong>end-use authorisation</strong> under the TARIC end-use procedure.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="classification" id="q7">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q7 &middot; Classification</div>
-                    <div class="faq-question__text">If my product could fit multiple CN codes, which takes priority?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>Classification follows the <strong>General Interpretative Rules (GIR)</strong> in hierarchical order:</p>
-                <ul>
-                    <li><strong>GIR 1:</strong> The heading text and Section/Chapter Notes determine classification first — never jump to GIR 2–6 unless GIR 1 is unclear</li>
-                    <li><strong>GIR 3(a):</strong> The most specific description prevails (e.g., &ldquo;rubber seed oil&rdquo; under 1515 is more specific than &ldquo;vegetable oil mixture&rdquo; under 1518)</li>
-                    <li><strong>GIR 3(b):</strong> If still ambiguous, classify by the component that gives the product its <strong>essential character</strong></li>
-                    <li><strong>GIR 3(c):</strong> If neither (a) nor (b) resolves it, use the heading that appears <strong>last in numerical order</strong></li>
-                </ul>
-                <p>In practice, for rubber seed oil, GIR 1 clearly places it in heading 1515 (other fixed vegetable fats and oils), not 1518 or 3823, unless it has undergone specific processing that changes its character.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="classification" id="q7">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Classification</span><span class="faq-q__text">If my product fits multiple CN codes, which takes priority?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>Classification follows the <strong>General Interpretative Rules (GIR)</strong> in order: <strong>GIR 1</strong> — heading text and notes decide first; <strong>GIR 3(a)</strong> — most specific description wins; <strong>GIR 3(b)</strong> — classify by essential character; <strong>GIR 3(c)</strong> — last numerical heading.</p>
+<p>For RSO, GIR 1 clearly places it in heading 1515 (other fixed vegetable fats and oils), not 1518 or 3823.</p>
+</div></div>
+</div>
 
-        <!-- ======== DUTIES & RATES ======== -->
-        <div class="faq-item" data-cats="duties" id="q8">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q8 &middot; Duties &amp; Rates</div>
-                    <div class="faq-question__text">What duty does Indonesia pay on rubber seed oil?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>Indonesia pays the full <strong>MFN (ERGA OMNES) rate</strong> because Section 3 (Animal and vegetable oils) was graduated from GSP on 1 January 2020:</p>
-                <ul>
-                    <li><strong>Crude RSO for industrial use</strong> (<code>1515 90 40</code>): <strong>3.2%</strong></li>
-                    <li><strong>Crude RSO for food/cosmetic use</strong> (<code>1515 90 59</code>): <strong>6.4%</strong></li>
-                    <li><strong>Refined RSO</strong> (<code>1515 90 99</code>): <strong>9.6%</strong></li>
-                </ul>
-                <p>No anti-dumping or countervailing duties apply to heading 1515 products from Indonesia. See <a href="indonesia.html">Indonesia analysis</a>.</p>
-            </div></div>
-        </div>
+<!-- DUTIES -->
+<div class="faq-item" data-cat="duties" id="q8">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Duties</span><span class="faq-q__text">What duty does Indonesia pay on rubber seed oil?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>Indonesia pays the full <strong>MFN rate</strong> because Section 3 was graduated from GSP on 1 January 2020:</p>
+<ul>
+<li>Crude RSO for industrial use (<code>1515 90 40</code>): <strong>3.2%</strong></li>
+<li>Crude RSO for food/cosmetic use (<code>1515 90 59</code>): <strong>6.4%</strong></li>
+<li>Refined RSO (<code>1515 90 99</code>): <strong>9.6%</strong></li>
+</ul>
+<p>No ADD or CVD applies to heading 1515. See <a href="indonesia.html">Indonesia analysis</a>.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="duties" id="q9">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q9 &middot; Duties &amp; Rates</div>
-                    <div class="faq-question__text">Does Indonesia get GSP preferences on heading 1515?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>No.</strong> Indonesia's Section 3 (which includes all of Chapter 15, including heading 1515) was graduated from the EU GSP scheme effective <strong>1 January 2020</strong>. The graduation was triggered because Indonesia's share of EU GSP imports in Section 3 exceeded 15% for three consecutive years.</p>
-                <p>Additionally, Indonesia will graduate <em>entirely</em> from the GSP scheme on <strong>1 January 2027</strong> (Reg. (EU) 2025/1951), after which all Indonesian products will pay full MFN rates regardless of section.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="duties" id="q9">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Duties</span><span class="faq-q__text">Does Indonesia get GSP on heading 1515?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>No.</strong> Indonesia's Section 3 was graduated from GSP effective <strong>1 January 2020</strong>. Additionally, Indonesia will graduate entirely from GSP on <strong>1 January 2027</strong> (Reg. (EU) 2025/1951).</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="duties" id="q10">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q10 &middot; Duties &amp; Rates</div>
-                    <div class="faq-question__text">Will the EU-Indonesia CEPA reduce duties to zero?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>Eventually, yes</strong> — but the CEPA is <strong>not yet in force</strong> (as of July 2026). Negotiations were concluded in September 2025, but the agreement must undergo legal revision, translation into all EU languages, signature by both parties, and ratification (Council approval + European Parliament consent + Indonesian parliamentary ratification).</p>
-                <p>Once in force, tariffs will be progressively eliminated according to the agreement's staging schedule. Some products may go to zero immediately (Staging 0), others phased over 3–10 years. Until CEPA enters into force, full MFN rates apply. Realistic timeline: late 2027 at the earliest for provisional application.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="duties" id="q10">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Duties</span><span class="faq-q__text">Will the EU-Indonesia CEPA reduce duties to zero?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>Eventually, yes</strong> — but the CEPA is <strong>not yet in force</strong> (as of July 2026). Negotiations concluded September 2025; ratification and implementation take time. Realistic timeline: late 2027 at the earliest.</p>
+<p>Once in force, tariffs will be progressively eliminated according to the phase-out schedule. Until then, full MFN rates apply.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="duties" id="q11">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q11 &middot; Duties &amp; Rates</div>
-                    <div class="faq-question__text">Why does the same oil have different duty rates under different CN codes?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>The EU uses <strong>tariff escalation</strong> to protect domestic processing industries:</p>
-                <ul>
-                    <li><strong>Raw materials</strong> (crude oils for industrial use, e.g., <code>1515 90 40</code> at 3.2%) face <strong>lower duties</strong> to support EU processors who add value through refining or biodiesel production</li>
-                    <li><strong>Semi-processed goods</strong> (crude oils for food, <code>1515 90 59</code> at 6.4%) face moderate duties</li>
-                    <li><strong>Finished goods</strong> (refined oils, <code>1515 90 99</code> at 9.6%; consumer-packaged products often higher) face <strong>higher duties</strong> to protect EU consumer product manufacturers</li>
-                </ul>
-                <p>This is standard WTO-consistent tariff policy — the more processing a product has undergone, the higher the duty, encouraging processing to occur within the EU.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="duties" id="q11">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Duties</span><span class="faq-q__text">Why different duty rates for the same oil?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>It's called <strong>tariff escalation</strong>: raw materials face lower duties to support EU processors; finished goods face higher duties to protect EU manufacturers. The more processing, the higher the rate. Crude industrial oil (3.2%) &rarr; crude food oil (6.4%) &rarr; refined oil (9.6%).</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="duties" id="q12">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q12 &middot; Duties &amp; Rates</div>
-                    <div class="faq-question__text">What is the difference between MFN, ERGA OMNES, and GSP rates?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>MFN (Most-Favoured-Nation)</strong> and <strong>ERGA OMNES</strong> are the same thing — the standard WTO duty rate applied to all WTO members without preferential agreements. &ldquo;Erga omnes&rdquo; is Latin for &ldquo;towards all&rdquo; and is the term used in TARIC.</p>
-                <p><strong>GSP</strong> (Generalised Scheme of Preferences) is a <em>reduced</em> rate for eligible developing countries. Under the EU's Standard GSP, duties are reduced or eliminated for approximately 66% of tariff lines. <strong>GSP+</strong> (for vulnerable countries) and <strong>EBA</strong> (Everything But Arms, for LDCs) offer deeper preferences.</p>
-                <p><strong>FTA rates</strong> (e.g., under the future EU-Indonesia CEPA) are preferential rates under bilateral agreements, often progressively eliminated to 0%. The effective rate depends on origin country, product, and available preferences.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="duties" id="q12">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Duties</span><span class="faq-q__text">What&rsquo;s the difference between MFN, ERGA OMNES, and GSP?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>MFN</strong> and <strong>ERGA OMNES</strong> are identical — the standard WTO duty rate. <strong>GSP</strong> is a reduced rate for developing countries. <strong>GSP+</strong> and <strong>EBA</strong> offer deeper preferences. <strong>FTA rates</strong> (e.g., future EU-Indonesia CEPA) are bilateral preferential rates, often 0% after phase-in.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="duties" id="q13">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q13 &middot; Duties &amp; Rates</div>
-                    <div class="faq-question__text">What duty rate applies after Indonesia's full GSP graduation in 2027?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>From <strong>1 January 2027</strong>, Indonesia graduates entirely from GSP (Reg. (EU) 2025/1951). This means all Indonesian products — including those in sections that retained GSP preferences — will pay full MFN rates.</p>
-                <p>For rubber seed oil, the <strong>practical impact is zero</strong>: Section 3 was already graduated in 2020, so Indonesia already pays MFN on heading 1515. The 2027 graduation primarily affects products in other sections (e.g., chemicals, machinery, textiles).</p>
-                <p>The real game-changer will be the <strong>EU-Indonesia CEPA</strong>, which will progressively reduce MFN rates to zero — but only after it enters into force (likely 2028+).</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="duties" id="q13">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Duties</span><span class="faq-q__text">What changes with Indonesia&rsquo;s full GSP graduation in 2027?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>From <strong>1 January 2027</strong>, all Indonesian products pay full MFN rates. For RSO, the impact is <strong>zero</strong> — Section 3 was already graduated in 2020. The real change is the EU-Indonesia CEPA, which will progressively reduce MFN rates to zero once in force.</p>
+</div></div>
+</div>
 
-        <!-- ======== TRADE DEFENCE ======== -->
-        <div class="faq-item" data-cats="defence" id="q14">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q14 &middot; Trade Defence</div>
-                    <div class="faq-question__text">Is there an anti-dumping duty on rubber seed oil from Indonesia?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>No.</strong> The anti-dumping duty (Reg. (EU) 2023/111) applies only to industrial fatty acids under CN codes <code>ex 3823 19 10</code> and <code>ex 3823 19 90</code> with a Degree of Split (DoS) &ge;97%. It does <strong>not</strong> apply to heading 1515 products.</p>
-                <p>Rubber seed oil classified under <code>1515 90 40</code> or <code>1515 90 59</code> is <strong>not affected by any ADD or CVD</strong> from Indonesia. This is a major advantage of the Chapter 15 classification path over Chapter 38.</p>
-            </div></div>
-        </div>
+<!-- TRADE DEFENCE -->
+<div class="faq-item" data-cat="defence" id="q14">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Trade Defence</span><span class="faq-q__text">Is there an anti-dumping duty on RSO from Indonesia?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>No.</strong> The ADD (Reg. (EU) 2023/111) applies only to industrial fatty acids under <code>ex 3823 19 10</code> and <code>ex 3823 19 90</code> with DoS &ge;97%. RSO under heading 1515 is <strong>not affected by any ADD or CVD</strong>.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="defence" id="q15">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q15 &middot; Trade Defence</div>
-                    <div class="faq-question__text">What is &ldquo;Degree of Split&rdquo; (DoS) and why does it matter?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>Degree of Split (DoS)</strong> measures the percentage of fatty acid bonds that have been hydrolysed (split) from their glycerol backbone. A DoS of 97% means 97% of the triglyceride molecules have been broken into free fatty acids — the product is almost entirely free fatty acids.</p>
-                <p>The EU's anti-dumping regulation (Reg. (EU) 2023/111) uses <strong>DoS &ge;97%</strong> as its product scope threshold:</p>
-                <ul>
-                    <li>Indonesian fatty acids with DoS &ge;97% under <code>3823 19 10</code> or <code>3823 19 90</code>: subject to 46.4% ADD</li>
-                    <li>Indonesian fatty acids with DoS &lt;97%: outside the ADD scope</li>
-                    <li>Products under heading 1515 (triglyceride oils): DoS is irrelevant as there is no ADD</li>
-                </ul>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="defence" id="q15">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Trade Defence</span><span class="faq-q__text">What is &ldquo;Degree of Split&rdquo; (DoS)?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>DoS</strong> measures the percentage of fatty acid bonds hydrolysed from their glycerol backbone. DoS &ge;97% = nearly pure free fatty acids. The EU's ADD uses this as its scope threshold: Indonesian fatty acids with DoS &ge;97% face 46.4% ADD; DoS &lt;97% is outside scope.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="defence" id="q16">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q16 &middot; Trade Defence</div>
-                    <div class="faq-question__text">If I certify my product for RED II biofuels, is the ADD waived?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>Yes</strong> — for Chapter 38 fatty acids only. Reg. (EU) 2023/111 explicitly excludes fatty acids certified for sustainable biofuels production under Directive (EU) 2018/2001 (RED II). You need ISCC EU or equivalent sustainability certification.</p>
-                <p>However, this exemption is only relevant for products classified in heading 3823. For products classified under heading 1515 (including rubber seed oil), <strong>no ADD applies regardless</strong>, so the RED II exemption is unnecessary. This is another reason the 1515 path is preferred.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="defence" id="q16">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Trade Defence</span><span class="faq-q__text">Is the ADD waived for RED II certified biofuels?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>Yes</strong> — for Chapter 38 fatty acids only. Reg. (EU) 2023/111 excludes fatty acids certified for sustainable biofuels under RED II (ISCC EU or equivalent). For heading 1515 products, no ADD applies regardless, so the exemption is irrelevant.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="defence" id="q17">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q17 &middot; Trade Defence</div>
-                    <div class="faq-question__text">Does the CVD on Indonesian biodiesel affect the feedstock?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>No.</strong> The countervailing duty (Reg. (EU) 2019/2092) applies to biodiesel (fatty-acid mono-alkyl esters, FAME) classified under CN codes <code>ex 3826 00 10</code> and <code>ex 3826 00 90</code>. It targets the <strong>finished biodiesel product</strong>, not the feedstock used to produce it.</p>
-                <p>Crude rubber seed oil (heading 1515) is a feedstock and is <strong>not within the CVD scope</strong>. The CVD rate for Indonesian biodiesel producers ranges from 8% to 18% depending on the exporter. Feedstock imports face only the MFN customs duty plus any applicable ADD (which, as noted, does not apply to heading 1515).</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="defence" id="q17">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Trade Defence</span><span class="faq-q__text">Does the CVD on biodiesel affect feedstock imports?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>No.</strong> The CVD (Reg. (EU) 2019/2092, 8–18%) applies to finished biodiesel (FAME), not feedstock. RSO is a feedstock and is outside the CVD scope.</p>
+</div></div>
+</div>
 
-        <!-- ======== BLENDING ======== -->
-        <div class="faq-item" data-cats="blending" id="q18">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q18 &middot; Blending</div>
-                    <div class="faq-question__text">Can I mix RSO with another oil to get 0% duty?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>Possibly</strong> — if you create a <strong>genuine inedible mixture</strong> of two or more different vegetable oils for industrial use, it could qualify for <strong><code>1518 00 31</code> at 0% MFN</strong>.</p>
-                <p>Requirements:</p>
-                <ul>
-                    <li>At least <strong>20% of each component oil</strong> in the blend</li>
-                    <li>The blend must be <strong>genuinely inedible</strong> (documented by the producer)</li>
-                    <li>The blend must be for <strong>industrial/technical use</strong> only</li>
-                    <li>The oils must be <strong>physically mixed before import</strong>, not shipped separately</li>
-                    <li>A token addition (e.g., 5% jatropha in 95% RSO) will be challenged under GIR 2(b)</li>
-                </ul>
-                <p>See the <a href="mixing-guide.html">Mixing Guide</a> for full requirements and CJEU case law.</p>
-            </div></div>
-        </div>
+<!-- BLENDING -->
+<div class="faq-item" data-cat="blending" id="q18">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Blending</span><span class="faq-q__text">Can I mix RSO with another oil to get 0% duty?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>Possibly</strong> — a genuine inedible mixture of 2+ vegetable oils for industrial use could qualify for <code>1518 00 31</code> at <strong>0%</strong>. Requirements: at least 20% of each component, genuinely inedible, physically mixed before import, industrial use only. Token additions (5% jatropha in 95% RSO) will be challenged. See <a href="mixing-guide.html">Mixing Guide</a>.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="blending" id="q19">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q19 &middot; Blending</div>
-                    <div class="faq-question__text">Does the blend need to be created before shipping?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>Yes.</strong> Customs examines the product &ldquo;as presented at import.&rdquo; If two oils arrive in separate tanks, containers, or compartments but are invoiced together as a &ldquo;blend,&rdquo; customs will classify each oil separately under its own heading.</p>
-                <p>The blend must exist as a <strong>single, physically mixed product</strong> at the time of importation. Co-loading in a single tank is acceptable provided the oils are genuinely mixed. Blending at origin is strongly recommended over shipboard blending.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="blending" id="q19">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Blending</span><span class="faq-q__text">Must the blend be created before shipping?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>Yes.</strong> Customs examines the product &ldquo;as presented at import.&rdquo; Separate tanks or containers = separate products, each classified under its own heading. The blend must exist as a single, physically mixed product at import.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="blending" id="q20">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q20 &middot; Blending</div>
-                    <div class="faq-question__text">What is the CJEU Case C-233/15 and why does it matter?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>This 2016 ruling (SIA &ldquo;Baltkomerc&rdquo; vs. Valsts ieņēmumu dienests) established that for vegetable oil mixtures, the <strong>edible vs. inedible distinction</strong> is the determining factor for classification under CN code 1518.</p>
-                <p>Key findings:</p>
-                <ul>
-                    <li>An 88/12 rapeseed/sunflower blend was classified as <strong>inedible</strong> under <code>1518 00 31</code> based on the producer's own declarations about the production process</li>
-                    <li>This was upheld <strong>even though laboratory analysis did not detect noxious substances</strong></li>
-                    <li>The producer's documentation and declared end-use carry <strong>significant weight</strong> in classification — chemical testing alone does not determine edibility</li>
-                </ul>
-                <p>This ruling is directly relevant for RSO blends: if the producer documents the blend as inedible and for industrial use, this strongly supports classification under <code>1518 00 31</code>.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="blending" id="q20">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Blending</span><span class="faq-q__text">What is CJEU Case C-233/15 and why does it matter?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>This 2016 ruling established that for veg oil mixtures, the <strong>edible vs. inedible distinction</strong> is the key classification factor. An 88/12 rapeseed/sunflower blend was classified as inedible under <code>1518 00 31</code> based on the <strong>producer's own declarations</strong> — even though lab testing found no noxious substances. Documentation and declared end-use carry significant weight.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="blending" id="q21">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q21 &middot; Blending</div>
-                    <div class="faq-question__text">How are mixtures with three or more oils classified?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>The same principles apply whether a blend has 2, 3, or more components:</p>
-                <ul>
-                    <li><strong>GIR 3(b)</strong> applies: classify by the component giving the mixture its <strong>essential character</strong></li>
-                    <li>If no single component dominates, and the mixture is inedible and for industrial use, <code>1518 00 31</code> at 0% may apply</li>
-                    <li>All components must be <strong>different types</strong> of vegetable oil — mixing the same oil from different origins does not create a &ldquo;mixture&rdquo; for CN purposes</li>
-                    <li>Include all components in the <strong>blend composition certificate</strong> with exact percentages</li>
-                </ul>
-                <p>A 3-way blend (e.g., 40% RSO + 35% jatropha + 25% Pongamia) that is inedible and for biodiesel is a strong candidate for <code>1518 00 31</code>. See <a href="mixing-guide.html">Mixing Guide</a> for worked examples.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="blending" id="q21">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Blending</span><span class="faq-q__text">How are mixtures of 3+ oils classified?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>Same principles as 2-way blends. <strong>GIR 3(b)</strong> applies: classify by the component giving essential character. If none dominates and the mixture is inedible/industrial, <code>1518 00 31</code> at 0% may apply. Include exact percentages in the blend composition certificate.</p>
+</div></div>
+</div>
 
-        <!-- ======== PRACTICAL IMPORTING ======== -->
-        <div class="faq-item" data-cats="practical" id="q22">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q22 &middot; Practical</div>
-                    <div class="faq-question__text">What documents do I need for each shipment?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>Essential documents</strong> for every shipment:</p>
-                <ol>
-                    <li><strong>Commercial invoice</strong> — with declared CN code and value</li>
-                    <li><strong>Packing list</strong> — container/tank details, weights, volumes</li>
-                    <li><strong>Bill of lading</strong> — transport document</li>
-                    <li><strong>Certificate of origin</strong> — issued by Indonesian authorities (Form A if GSP-eligible, though Section 3 is graduated)</li>
-                    <li><strong>Certificate of analysis</strong> — FFA%, moisture, iodine value, impurities, phosphorus</li>
-                    <li><strong>End-use declaration</strong> — mandatory for <code>1515 90 40</code> (industrial use)</li>
-                </ol>
-                <p><strong>Additional for blends:</strong> blend composition certificate with exact percentages. <strong>For organic claims:</strong> COI (Certificate of Inspection, Reg. (EU) 2021/2306).</p>
-            </div></div>
-        </div>
+<!-- PRACTICAL -->
+<div class="faq-item" data-cat="practical" id="q22">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Practical</span><span class="faq-q__text">What documents do I need per shipment?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>Essential:</strong> (1) Commercial invoice with CN code, (2) Packing list, (3) Bill of lading, (4) Certificate of origin, (5) Certificate of analysis (FFA, moisture, IV, impurities), (6) End-use declaration (for 1515 90 40). <strong>Blends:</strong> add blend composition certificate. <strong>Organic:</strong> COI (Reg. (EU) 2021/2306).</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="practical" id="q23">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q23 &middot; Practical</div>
-                    <div class="faq-question__text">Can I import small volumes for testing (1–5 tonnes)?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>Yes.</strong> There is no minimum volume for customs declaration. The duty rate is the same regardless of quantity.</p>
-                <p>For trial shipments:</p>
-                <ul>
-                    <li>Consider the <strong>Simplified Declaration Procedure</strong> or <strong>Entry in the Declarant's Records</strong> (Article 182 UCC) to reduce administrative burden</li>
-                    <li>Most EU biodiesel plants can accept samples of 200–1,000 litres in IBC totes for feedstock testing</li>
-                    <li>A BTI is still recommended before commercial volumes, but not strictly required for genuine trials</li>
-                    <li>For very small quantities (under 5 tonnes), some Member States accept a simplified customs procedure with reduced documentation</li>
-                </ul>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="practical" id="q23">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Practical</span><span class="faq-q__text">Can I import 1–5 tonnes for testing?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>Yes.</strong> No minimum volume for customs. Consider <strong>Simplified Declaration</strong> or <strong>Entry in Declarant's Records</strong> (Article 182 UCC). Most EU biodiesel plants accept 200–1,000 litre samples in IBC totes.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="practical" id="q24">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q24 &middot; Practical</div>
-                    <div class="faq-question__text">How long does a BTI application take?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>Typically <strong>4–6 months</strong> from submission to decision, though complex cases can take longer. The customs authority may request:</p>
-                <ul>
-                    <li>Product samples for laboratory analysis</li>
-                    <li>Detailed technical documentation (extraction method, processing steps, chemical profile)</li>
-                    <li>Manufacturing process descriptions and flowcharts</li>
-                    <li>End-use declarations and supporting contracts</li>
-                </ul>
-                <p>Once issued, the BTI is valid for <strong>3 years</strong> and binding across all 27 EU Member States. Apply well before your first commercial shipment. You can check existing BTI decisions for similar products through the <a href="https://ec.europa.eu/taxation_customs/dds2/bti/" target="_blank">EBTI database</a>.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="practical" id="q24">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Practical</span><span class="faq-q__text">How long does a BTI take?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>Typically <strong>4–6 months</strong>. Customs may request samples, technical docs, process descriptions, and end-use declarations. Valid for <strong>3 years</strong>, binding across all 27 Member States. Check existing decisions via the <a href="https://ec.europa.eu/taxation_customs/dds2/bti/" target="_blank">EBTI database</a>.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="practical" id="q25">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q25 &middot; Practical</div>
-                    <div class="faq-question__text">What happens if customs reclassifies my product after import?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>Post-clearance audits can occur for up to <strong>3 years</strong> after import (5 years in some Member States for serious negligence). If customs reclassifies the product to a higher-duty code, you face:</p>
-                <ol>
-                    <li><strong>Back-duties</strong> — the difference between the duty paid and the correct higher rate, for all shipments in the audit period</li>
-                    <li><strong>Interest</strong> on the unpaid amount (rates vary by Member State, typically 3–8% per annum)</li>
-                    <li><strong>Penalties</strong> for misdeclaration — can range from administrative fines to criminal penalties for deliberate misclassification</li>
-                </ol>
-                <p>This is why a <strong>BTI</strong> and proper documentation are critical — a valid BTI provides a complete defence against reclassification during its validity period. End-use-dependent codes like <code>1515 90 40</code> are particularly scrutinised.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="practical" id="q25">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Practical</span><span class="faq-q__text">What if customs reclassifies my product?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>Post-clearance audits can occur up to <strong>3 years</strong> after import. If reclassified upward, you face: (1) back-duties, (2) interest, (3) potential penalties. A <strong>BTI</strong> provides complete defence during its validity period.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="practical" id="q26">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q26 &middot; Practical</div>
-                    <div class="faq-question__text">Do I need ISCC EU certification for biodiesel feedstock?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>Not for customs purposes</strong> — ISCC EU certification is a <em>sustainability</em> requirement under RED II (Directive (EU) 2018/2001), not a customs requirement. However:</p>
-                <ul>
-                    <li>If the EU biodiesel producer wants to count the fuel toward <strong>renewable energy targets</strong>, the feedstock must be sustainability-certified</li>
-                    <li>ISCC EU (International Sustainability and Carbon Certification) is the most widely used voluntary scheme recognised by the European Commission</li>
-                    <li>The ADD biofuel exemption (Reg. (EU) 2023/111, for Chapter 38 products only) also requires RED II sustainability certification</li>
-                    <li>Unsustainably-certified feedstock can still be imported and processed into biodiesel, but the resulting fuel cannot be counted toward RED II targets</li>
-                </ul>
-                <p>In practice, most EU biodiesel producers require ISCC EU certification from their feedstock suppliers as a commercial condition.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="practical" id="q26">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Practical</span><span class="faq-q__text">Do I need ISCC EU certification?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>Not for customs</strong> — ISCC EU is a RED II sustainability requirement, not customs. But EU biodiesel buyers typically <strong>require</strong> it to count fuel toward renewable targets. Unsustainably-certified feedstock can be imported, but the resulting fuel can't count toward RED II.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="practical" id="q27">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q27 &middot; Practical</div>
-                    <div class="faq-question__text">Which EU Member State is best to import through?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>The duty rate is identical in all 27 Member States (Common Customs Tariff). Differences are operational:</p>
-                <ul>
-                    <li><strong>Netherlands</strong> (Rotterdam) — largest bulk liquid port in Europe, extensive tank storage, experienced customs brokers for veg oils</li>
-                    <li><strong>Spain</strong> (Barcelona, Bilbao) — strong domestic biodiesel industry, shorter transit from Indonesia via Suez</li>
-                    <li><strong>Germany</strong> (Hamburg) — efficient customs administration, strong chemical industry for offtake</li>
-                    <li><strong>Italy</strong> (Trieste, Genoa) — Mediterranean gateway, closer to Asian shipping routes</li>
-                    <li><strong>Belgium</strong> (Antwerp) — major chemical cluster, extensive tank storage</li>
-                </ul>
-                <p>For BTI applications, choose the Member State where you'll most frequently import. The BTI is valid across all Member States regardless of which one issued it.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="practical" id="q27">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Practical</span><span class="faq-q__text">Which EU port is best for vegetable oil?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>Duty rates are identical across the EU. Operational differences: <strong>Rotterdam</strong> (largest bulk liquid port), <strong>Barcelona/Bilbao</strong> (strong biodiesel industry), <strong>Hamburg</strong> (efficient customs, chemical industry), <strong>Trieste/Genoa</strong> (closer to Asian shipping), <strong>Antwerp</strong> (major chemical cluster).</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="practical" id="q28">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q28 &middot; Practical</div>
-                    <div class="faq-question__text">How does customs valuation work for vegetable oil imports?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>Customs value is determined under the <strong>Union Customs Code (UCC)</strong>, primarily using the <strong>transaction value method</strong> (Article 70 UCC): the price actually paid or payable for the goods, adjusted for:</p>
-                <ul>
-                    <li><strong>Additions:</strong> commissions, packing costs, royalties, transport/insurance to the EU border, assists (materials/tools supplied by buyer)</li>
-                    <li><strong>Deductions:</strong> post-import transport within the EU, EU construction/assembly costs, EU duties and taxes</li>
-                </ul>
-                <p>For <strong>related-party transactions</strong> (e.g., Indonesian supplier and EU importer under common ownership), customs will scrutinise whether the transfer price reflects <strong>arm's length</strong> pricing. If not, alternative valuation methods apply. Maintain transfer pricing documentation demonstrating the price is consistent with market benchmarks for comparable crude oils.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="practical" id="q28">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Practical</span><span class="faq-q__text">How does customs valuation work?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>Under the <strong>Union Customs Code</strong>, valuation uses the transaction value method (price paid + adjustments). For <strong>related-party transactions</strong>, customs scrutinises whether the transfer price reflects arm's length pricing. Maintain documentation showing consistency with market benchmarks for comparable crude oils.</p>
+</div></div>
+</div>
 
-        <!-- ======== EUDR & SUSTAINABILITY ======== -->
-        <div class="faq-item" data-cats="eudr" id="q29">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q29 &middot; EUDR</div>
-                    <div class="faq-question__text">Does the EU Deforestation Regulation (EUDR) apply to rubber seed oil?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>Yes.</strong> Reg. (EU) 2023/1115 (EUDR) applies to <strong>rubber</strong> as a commodity, and products derived from rubber trees — including rubber seed oil — fall within its scope. The EUDR requires that products placed on the EU market be:</p>
-                <ul>
-                    <li><strong>Deforestation-free</strong> — produced on land not subject to deforestation after 31 December 2020</li>
-                    <li><strong>Produced legally</strong> — in compliance with all relevant laws of the country of production</li>
-                    <li><strong>Covered by a due diligence statement</strong> — submitted through the EU's Information System before import</li>
-                </ul>
-                <p>The regulation applies from <strong>30 December 2025</strong> for large operators (30 December 2026 for SMEs). Rubber seed oil importers must conduct due diligence on the plantation origin of the seeds. However, rubber seed oil as a <strong>by-product of existing rubber latex production</strong> (rather than a driver of new plantations) may simplify compliance.</p>
-            </div></div>
-        </div>
+<!-- EUDR -->
+<div class="faq-item" data-cat="eudr" id="q29">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">EUDR</span><span class="faq-q__text">Does the EUDR apply to rubber seed oil?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>Yes.</strong> Reg. (EU) 2023/1115 applies to rubber and its derivatives. The oil must be deforestation-free, legally produced, and covered by a due diligence statement. RSO as a <strong>by-product</strong> of existing rubber plantations (not a driver of new plantations) may simplify compliance.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="eudr" id="q30">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q30 &middot; EUDR</div>
-                    <div class="faq-question__text">What does the EUDR due diligence statement require?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>The due diligence statement (Article 4 of EUDR) must include:</p>
-                <ul>
-                    <li><strong>Product description</strong> — CN code, quantity, species (Hevea brasiliensis)</li>
-                    <li><strong>Country of production</strong> — Indonesia, and specific region/plantation if available</li>
-                    <li><strong>Geolocation</strong> — geographic coordinates of all plots of land where the rubber seeds were harvested</li>
-                    <li><strong>Time period</strong> — date or time range of production</li>
-                    <li><strong>Deforestation risk assessment</strong> — documentation of the risk analysis performed</li>
-                    <li><strong>Risk mitigation measures</strong> — if any risk was identified</li>
-                    <li><strong>Operator/trader details</strong> — EORI number, contact information</li>
-                </ul>
-                <p>For rubber seed oil collected from existing rubber plantations (which produce latex as the primary product), the deforestation risk is generally low, but documentation of plantation establishment dates (pre-2020) is essential.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="eudr" id="q30">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">EUDR</span><span class="faq-q__text">What goes into the due diligence statement?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>Product description &amp; CN code, country &amp; region of production, <strong>geolocation</strong> of all harvest plots, date/time range, deforestation risk assessment, risk mitigation measures, and operator/trader details (EORI number). For RSO from existing plantations, document establishment dates (pre-2020).</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="eudr" id="q31">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q31 &middot; EUDR</div>
-                    <div class="faq-question__text">What is EUDR country benchmarking and how does it affect Indonesia?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>Under Article 29 of the EUDR, the European Commission will classify countries (or parts thereof) into three risk categories:</p>
-                <ul>
-                    <li><strong>Low risk</strong> — simplified due diligence (only document collection, no risk assessment/mitigation required)</li>
-                    <li><strong>Standard risk</strong> — full due diligence required</li>
-                    <li><strong>High risk</strong> — full due diligence plus enhanced scrutiny by competent authorities (9% of operators subject to checks vs. 3% for standard risk)</li>
-                </ul>
-                <p>The benchmarking list was initially due by December 2024 but has been delayed. Indonesia's classification is not yet final but is expected to be <strong>standard or high risk</strong> given deforestation trends. Importers should prepare for full due diligence requirements regardless.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="eudr" id="q31">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">EUDR</span><span class="faq-q__text">How does EUDR country benchmarking affect Indonesia?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>The Commission classifies countries as low/standard/high risk. Low risk = simplified due diligence; high risk = enhanced scrutiny (9% of operators checked vs. 3%). Indonesia is expected to be <strong>standard or high risk</strong>. Prepare for full due diligence regardless.</p>
+</div></div>
+</div>
 
-        <!-- ======== ADVANCED ======== -->
-        <div class="faq-item" data-cats="advanced" id="q32">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q32 &middot; Advanced</div>
-                    <div class="faq-question__text">What does &ldquo;ex&rdquo; mean before a CN code (e.g., ex 3823 19 90)?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>The <strong>&ldquo;ex&rdquo;</strong> prefix means &ldquo;extracted from&rdquo; — it indicates that only <em>certain products</em> within that CN code are covered by the measure, not all products under the code.</p>
-                <p>For example, <code>ex 3823 19 90</code> in the ADD regulation means only those TARIC subcodes of 3823 19 90 that meet the specific criteria (DoS &ge;97%, Indonesian origin, not RED II certified) are within the ADD scope. Other products classified under <code>3823 19 90</code> — such as acid oils with DoS &lt;97% — are not subject to the ADD even though they share the same 8-digit CN code.</p>
-                <p>In TARIC, &ldquo;ex&rdquo; codes are implemented through <strong>10-digit TARIC subcodes</strong> and <strong>additional TARIC codes</strong> that precisely define which products are covered.</p>
-            </div></div>
-        </div>
+<!-- ADVANCED -->
+<div class="faq-item" data-cat="advanced" id="q32">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Advanced</span><span class="faq-q__text">What does &ldquo;ex&rdquo; mean before a CN code?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>&ldquo;ex&rdquo;</strong> means &ldquo;extracted from&rdquo; — only <em>certain products</em> within that CN code are covered. E.g., <code>ex 3823 19 90</code> in the ADD regulation covers only TARIC subcodes with DoS &ge;97%. Other products under the same 8-digit code are not affected. &ldquo;ex&rdquo; codes are implemented through 10-digit TARIC subcodes.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="advanced" id="q33">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q33 &middot; Advanced</div>
-                    <div class="faq-question__text">What is the difference between ADD and CVD?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>Anti-Dumping Duty (ADD)</strong> counters <em>dumping</em> — when products are sold in the EU below their normal value (domestic price in the exporting country). The ADD bridges the gap between the export price and the normal value (the &ldquo;dumping margin&rdquo;). For Indonesian fatty acids: 46.4% (Wilmar), up to 60.6% for others.</p>
-                <p><strong>Countervailing Duty (CVD)</strong> counters <em>subsidies</em> — when the exporting country's government provides financial contributions that give the product an unfair advantage. The CVD offsets the subsidy amount. For Indonesian biodiesel: 8%–18% depending on exporter.</p>
-                <p>Both are WTO-consistent trade defence instruments but target different unfair trade practices. They can be applied <strong>simultaneously</strong> to the same product (as with Indonesian biodiesel). Neither applies to rubber seed oil under heading 1515.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="advanced" id="q33">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Advanced</span><span class="faq-q__text">What&rsquo;s the difference between ADD and CVD?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>ADD</strong> counters dumping (selling below normal value). <strong>CVD</strong> counters subsidies. For Indonesia: ADD applies to Chapter 38 fatty acids (46.4%); CVD applies to biodiesel (8–18%). Both are WTO trade defence instruments; neither applies to RSO under heading 1515.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="advanced" id="q34">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q34 &middot; Advanced</div>
-                    <div class="faq-question__text">Can I appeal a customs classification decision?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p><strong>Yes.</strong> There is a two-stage appeal process:</p>
-                <ol>
-                    <li><strong>Administrative review</strong> — submit a request for review to the customs authority that made the decision, typically within 30–60 days (varies by Member State). Include supporting evidence: laboratory analysis, expert opinions, BTI rulings for similar products, and technical documentation.</li>
-                    <li><strong>Judicial appeal</strong> — if the administrative review is unsuccessful, appeal to the national tax/customs court (or equivalent tribunal) in the relevant Member State. Further appeal to the national supreme court and ultimately a preliminary reference to the <strong>CJEU</strong> (Court of Justice of the European Union) on questions of EU law.</li>
-                </ol>
-                <p>Having a <strong>BTI</strong> for the same product effectively pre-empts classification disputes. If a Member State customs authority issues a BTI for a specific CN code, other Member States must respect it.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="advanced" id="q34">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Advanced</span><span class="faq-q__text">Can I appeal a customs classification decision?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p><strong>Yes.</strong> Two-stage process: (1) <strong>Administrative review</strong> — request a review from the customs authority that made the decision; (2) <strong>Judicial appeal</strong> — appeal to the national customs court, then to the supreme court, and finally a preliminary reference to the <strong>CJEU</strong>. A BTI for your product effectively pre-empts disputes.</p>
+</div></div>
+</div>
 
-        <div class="faq-item" data-cats="advanced" id="q35">
-            <button class="faq-question" aria-expanded="false">
-                <svg class="faq-question__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                <div class="faq-question__body">
-                    <div class="faq-question__label">Q35 &middot; Advanced</div>
-                    <div class="faq-question__text">How are TARIC codes different from CN codes in practice?</div>
-                </div>
-            </button>
-            <div class="faq-answer"><div class="faq-answer__inner">
-                <p>While CN codes are 8-digit and uniform across the EU, <strong>TARIC codes</strong> add 2 more digits (10-digit total) to capture EU-specific measures that don't exist in the common CN:</p>
-                <ul>
-                    <li><strong>Tariff suspensions and quotas</strong> — temporary duty reductions for specific products</li>
-                    <li><strong>Anti-dumping and countervailing duties</strong> — TARIC subcodes identify which products are in-scope (e.g., <code>3823 19 90 10</code> for ADD-applicable acid oils vs. <code>3823 19 90 90</code> for others)</li>
-                    <li><strong>Import/export restrictions</strong> — prohibitions, licences, surveillance</li>
-                    <li><strong>End-use procedures</strong> — products eligible for reduced duties if used for specific purposes</li>
-                </ul>
-                <p>In practice, traders declare at the <strong>10-digit TARIC level</strong>, not just the 8-digit CN. The TARIC code determines the actual duty payable. Always check the TARIC database (<a href="https://ec.europa.eu/taxation_customs/dds2/taric/taric_consultation.jsp?Lang=en" target="_blank">TARIC Consultation</a>) for your specific product and origin, not just the CN nomenclature.</p>
-            </div></div>
-        </div>
+<div class="faq-item" data-cat="advanced" id="q35">
+<button class="faq-q" aria-expanded="false"><span class="faq-q__arrow"></span><span class="faq-q__body"><span class="faq-q__tag">Advanced</span><span class="faq-q__text">How are TARIC codes different from CN codes?</span></span></button>
+<div class="faq-a"><div class="faq-a__inner">
+<p>CN codes are 8-digit; <strong>TARIC codes</strong> add 2 more digits (10-digit) for EU-specific measures: tariff suspensions/quota, ADD/CVD subcodes, import restrictions, and end-use procedures. Traders declare at the <strong>10-digit TARIC level</strong>. Always check the <a href="https://ec.europa.eu/taxation_customs/dds2/taric/taric_consultation.jsp?Lang=en" target="_blank">TARIC database</a>.</p>
+</div></div>
+</div>
 
-    </div><!-- /faq-list -->
+</div><!-- /faq-items -->
 
-    <div class="divider"></div>
+<div class="divider"></div>
 
-    <!-- Still have questions -->
-    <section>
-        <h2>Still Have Questions?</h2>
-        <div class="panel panel--accent">
-            <div class="panel__title">Key resources</div>
-            <ul class="text-small">
-                <li><a href="classification-guide.html">Classification Guide</a> — step-by-step decision tree with worked examples</li>
-                <li><a href="rubber-seed-oil.html">Rubber Seed Oil Strategy</a> — complete analysis for RSO importers</li>
-                <li><a href="mixing-guide.html">Mixing &amp; Blending Guide</a> — EU rules for oil mixtures</li>
-                <li><a href="glossary.html">Glossary</a> — definitions of all technical terms</li>
-                <li><a href="sources.html">Sources &amp; Methodology</a> — all primary EU legal references</li>
-                <li><a href="https://ec.europa.eu/taxation_customs/dds2/taric/taric_consultation.jsp?Lang=en" target="_blank">EU TARIC Consultation</a> — official database for current duty rates</li>
-                <li><a href="https://ec.europa.eu/taxation_customs/dds2/bti/" target="_blank">EBTI database</a> — search existing BTI rulings</li>
-            </ul>
-        </div>
-        <div class="callout callout--note">
-            <div class="callout__title">Disclaimer</div>
-            This FAQ provides general information only and does not constitute legal or customs advice. For binding decisions, always consult a licensed customs broker or apply for a BTI ruling.
-        </div>
-    </section>
+<section>
+<h2>Still Have Questions?</h2>
+<div class="panel panel--accent">
+<div class="panel__title">Key resources</div>
+<ul class="text-small">
+<li><a href="classification-guide.html">Classification Guide</a> — decision tree with worked examples</li>
+<li><a href="rubber-seed-oil.html">Rubber Seed Oil Strategy</a> — complete RSO analysis</li>
+<li><a href="mixing-guide.html">Mixing &amp; Blending Guide</a> — EU rules for oil mixtures</li>
+<li><a href="glossary.html">Glossary</a> — technical terms defined</li>
+<li><a href="sources.html">Sources &amp; Methodology</a> — primary EU legal references</li>
+<li><a href="https://ec.europa.eu/taxation_customs/dds2/taric/taric_consultation.jsp?Lang=en" target="_blank">EU TARIC Consultation</a></li>
+<li><a href="https://ec.europa.eu/taxation_customs/dds2/bti/" target="_blank">EBTI database</a></li>
+</ul>
+</div>
+<div class="callout callout--note">
+<div class="callout__title">Disclaimer</div>
+This FAQ provides general information only. For binding decisions, consult a licensed customs broker or apply for a BTI ruling.
+</div>
+</section>
 
-    <div class="divider divider--bold"></div>
-
-    <div class="text-center mb-3">
-        <a href="mixing-guide.html" class="btn btn--secondary">&larr; Mixing Guide</a>
-        &nbsp;
-        <a href="glossary.html" class="btn">Next: Glossary &rarr;</a>
-    </div>
+<div class="divider divider--bold"></div>
+<div class="text-center mb-3">
+<a href="mixing-guide.html" class="btn btn--secondary">&larr; Mixing Guide</a>&nbsp;&nbsp;<a href="glossary.html" class="btn">Glossary &rarr;</a>
+</div>
 </main>
 <div id="tpl-footer"></div>
 <button class="back-to-top" aria-label="Back to top">&uarr;</button>
 <script src="assets/app.js"></script>
 <script>
-// ============================================
-// FAQ Page — Interactive accordion, search, filters
-// ============================================
-(function() {
-    'use strict';
+(function(){'use strict';
+var items=document.getElementById('faq-items'),input=document.getElementById('faq-search-input'),clear=document.getElementById('faq-search-clear'),meta=document.getElementById('faq-meta'),empty=document.getElementById('faq-empty'),expand=document.getElementById('faq-expand-all'),collapse=document.getElementById('faq-collapse-all'),filters=document.getElementById('faq-filters');
+if(!items)return;
+var allItems=items.querySelectorAll('.faq-item'),total=allItems.length,activeCat='all',query='';
 
-    var faqList = document.getElementById('faq-list');
-    var searchInput = document.getElementById('faq-search-input');
-    var searchClear = document.getElementById('faq-search-clear');
-    var resultsEl = document.getElementById('faq-results');
-    var emptyEl = document.getElementById('faq-empty');
-    var expandAllBtn = document.getElementById('faq-expand-all');
-    var collapseAllBtn = document.getElementById('faq-collapse-all');
-    var catContainer = document.getElementById('faq-categories');
+items.addEventListener('click',function(e){
+var q=e.target.closest('.faq-q');if(!q)return;
+var item=q.closest('.faq-item'),open=item.classList.contains('is-open');
+item.classList.toggle('is-open');q.setAttribute('aria-expanded',!open);
+});
+items.addEventListener('keydown',function(e){
+if(e.key==='Enter'||e.key===' '){var q=e.target.closest('.faq-q');if(q){e.preventDefault();var item=q.closest('.faq-item');item.classList.toggle('is-open');q.setAttribute('aria-expanded',item.classList.contains('is-open'));}}
+});
+if(expand)expand.addEventListener('click',function(){allItems.forEach(function(i){if(!i.classList.contains('is-hidden')){i.classList.add('is-open');i.querySelector('.faq-q').setAttribute('aria-expanded','true');}});});
+if(collapse)collapse.addEventListener('click',function(){allItems.forEach(function(i){i.classList.remove('is-open');i.querySelector('.faq-q').setAttribute('aria-expanded','false');});});
+if(filters)filters.addEventListener('click',function(e){
+var b=e.target.closest('.faq-filter');if(!b)return;
+activeCat=b.getAttribute('data-cat');
+filters.querySelectorAll('.faq-filter').forEach(function(f){f.classList.toggle('is-active',f===b);});
+filter();
+});
+if(input)input.addEventListener('input',function(){query=this.value.trim().toLowerCase();if(clear)clear.classList.toggle('is-visible',query.length>0);filter();});
+if(clear)clear.addEventListener('click',function(){input.value='';query='';clear.classList.remove('is-visible');input.focus();filter();});
 
-    if (!faqList) return;
+function filter(){
+var n=0;
+allItems.forEach(function(i){
+var cat=i.getAttribute('data-cat')||'',catOk=activeCat==='all'||cat.split(' ').indexOf(activeCat)!==-1;
+var qOk=true;if(query){qOk=(i.textContent||'').toLowerCase().indexOf(query)!==-1;}
+if(catOk&&qOk){i.classList.remove('is-hidden');n++;}else{i.classList.remove('is-open');i.querySelector('.faq-q').setAttribute('aria-expanded','false');i.classList.add('is-hidden');}
+});
+if(meta)meta.textContent=query||activeCat!=='all'?'Showing '+n+' of '+total+' questions':'Showing '+total+' questions';
+if(empty)empty.style.display=n===0?'block':'none';
+}
 
-    var items = faqList.querySelectorAll('.faq-item');
-    var totalItems = items.length;
-    var activeCat = 'all';
-    var searchQuery = '';
+// Hash link support
+(function(){var h=window.location.hash;if(h){var t=document.getElementById(h.replace('#',''));if(t&&t.classList.contains('faq-item')){t.classList.add('is-open');t.querySelector('.faq-q').setAttribute('aria-expanded','true');setTimeout(function(){t.scrollIntoView({behavior:'smooth',block:'center'})},100);}}})();
+window.addEventListener('hashchange',function(){var h=window.location.hash;if(h){var t=document.getElementById(h.replace('#',''));if(t&&t.classList.contains('faq-item')){t.classList.add('is-open');t.querySelector('.faq-q').setAttribute('aria-expanded','true');setTimeout(function(){t.scrollIntoView({behavior:'smooth',block:'center'})},100);}}});
 
-    // ======== EXPAND/COLLAPSE SINGLE ========
-    faqList.addEventListener('click', function(e) {
-        var question = e.target.closest('.faq-question');
-        if (!question) return;
-        var item = question.closest('.faq-item');
-        if (!item) return;
-        toggleItem(item);
-    });
-
-    // Keyboard support
-    faqList.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            var question = e.target.closest('.faq-question');
-            if (question) {
-                e.preventDefault();
-                toggleItem(question.closest('.faq-item'));
-            }
-        }
-    });
-
-    function toggleItem(item) {
-        var isOpen = item.classList.contains('faq-item--open');
-        var question = item.querySelector('.faq-question');
-        if (isOpen) {
-            item.classList.remove('faq-item--open');
-            if (question) question.setAttribute('aria-expanded', 'false');
-        } else {
-            item.classList.add('faq-item--open');
-            if (question) question.setAttribute('aria-expanded', 'true');
-        }
-    }
-
-    // ======== EXPAND / COLLAPSE ALL ========
-    if (expandAllBtn) {
-        expandAllBtn.addEventListener('click', function() {
-            getVisibleItems().forEach(function(item) {
-                item.classList.add('faq-item--open');
-                var q = item.querySelector('.faq-question');
-                if (q) q.setAttribute('aria-expanded', 'true');
-            });
-        });
-    }
-
-    if (collapseAllBtn) {
-        collapseAllBtn.addEventListener('click', function() {
-            getVisibleItems().forEach(function(item) {
-                item.classList.remove('faq-item--open');
-                var q = item.querySelector('.faq-question');
-                if (q) q.setAttribute('aria-expanded', 'false');
-            });
-        });
-    }
-
-    function getVisibleItems() {
-        var result = [];
-        items.forEach(function(item) {
-            if (!item.classList.contains('faq-item--hidden')) {
-                result.push(item);
-            }
-        });
-        return result;
-    }
-
-    // ======== CATEGORY FILTERS ========
-    if (catContainer) {
-        catContainer.addEventListener('click', function(e) {
-            var btn = e.target.closest('.faq-category');
-            if (!btn) return;
-            activeCat = btn.getAttribute('data-cat');
-            // Update active state
-            catContainer.querySelectorAll('.faq-category').forEach(function(b) {
-                b.classList.toggle('faq-category--active', b === btn);
-            });
-            applyFilters();
-        });
-    }
-
-    // ======== SEARCH ========
-    if (searchInput) {
-        searchInput.addEventListener('input', function() {
-            searchQuery = this.value.trim().toLowerCase();
-            if (searchClear) {
-                searchClear.classList.toggle('visible', searchQuery.length > 0);
-            }
-            applyFilters();
-        });
-    }
-
-    if (searchClear) {
-        searchClear.addEventListener('click', function() {
-            searchInput.value = '';
-            searchQuery = '';
-            searchClear.classList.remove('visible');
-            searchInput.focus();
-            applyFilters();
-        });
-    }
-
-    // ======== APPLY FILTERS + SEARCH ========
-    function applyFilters() {
-        var visibleCount = 0;
-
-        items.forEach(function(item) {
-            var cats = item.getAttribute('data-cats') || '';
-            var catMatch = activeCat === 'all' || cats.split(' ').indexOf(activeCat) !== -1;
-            var searchMatch = true;
-
-            if (searchQuery) {
-                var text = (item.textContent || '').toLowerCase();
-                searchMatch = text.indexOf(searchQuery) !== -1;
-            }
-
-            if (catMatch && searchMatch) {
-                item.classList.remove('faq-item--hidden');
-                visibleCount++;
-            } else {
-                item.classList.remove('faq-item--open');
-                var q = item.querySelector('.faq-question');
-                if (q) q.setAttribute('aria-expanded', 'false');
-                item.classList.add('faq-item--hidden');
-            }
-        });
-
-        // Update results count
-        if (resultsEl) {
-            if (searchQuery || activeCat !== 'all') {
-                resultsEl.textContent = 'Showing ' + visibleCount + ' of ' + totalItems + ' questions';
-            } else {
-                resultsEl.textContent = 'Showing ' + totalItems + ' questions';
-            }
-        }
-
-        // Show/hide empty state
-        if (emptyEl) {
-            emptyEl.style.display = visibleCount === 0 ? 'block' : 'none';
-        }
-    }
-
-    // ======== INIT: Open question if URL hash matches ========
-    function openFromHash() {
-        var hash = window.location.hash;
-        if (hash) {
-            var target = document.getElementById(hash.replace('#', ''));
-            if (target && target.classList.contains('faq-item')) {
-                target.classList.add('faq-item--open');
-                var q = target.querySelector('.faq-question');
-                if (q) q.setAttribute('aria-expanded', 'true');
-                // Scroll to it after a short delay to allow layout
-                setTimeout(function() {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 100);
-            }
-        }
-    }
-
-    openFromHash();
-    window.addEventListener('hashchange', openFromHash);
-
-    // Update count on load
-    if (resultsEl) {
-        resultsEl.textContent = 'Showing ' + totalItems + ' questions';
-    }
+if(meta)meta.textContent='Showing '+total+' questions';
 })();
 </script>
 </body>
