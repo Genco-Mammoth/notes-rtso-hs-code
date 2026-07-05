@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="eu-blue">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HS, CN, and TARIC nomenclature hierarchy for heading 1515: how EU customs classifies vegetable fats and oils.">
+<title>Nomenclature System — Tariff Analysis Report</title>
+
+<!-- Prevent theme flash -->
+<script>(function(){try{var t=localStorage.getItem("hs1515-theme")||"eu-blue";document.documentElement.setAttribute("data-theme",t);var ft=localStorage.getItem("hs1515-font")||"modern";document.documentElement.setAttribute("data-font",ft);var f=localStorage.getItem("hs1515-fontsize")||"normal";document.documentElement.setAttribute("data-fontsize",f);var w=localStorage.getItem("hs1515-width")||"normal";document.documentElement.setAttribute("data-width",w)}catch(e){}})();</script>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div id="tpl-header"></div>
+
+<div id="tpl-nav"></div>
+
+<main class="page">
+
+    <div class="print-only print-title">
+        <h1>Nomenclature: HS, CN &amp; TARIC</h1>
+        <span class="print-title__badge">4 July 2026</span>
+    </div>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb__sep">/</span>
+        <span>Nomenclature</span>
+    </div>
+
+    <div class="page-header">
+        <h1>Nomenclature System: HS &rarr; CN &rarr; TARIC</h1>
+        <div class="page-header__meta">
+            <span class="meta-pill meta-pill--gold">Primary sources only</span>
+            <span class="meta-pill">WCO HS 2022</span>
+            <span class="meta-pill">Reg. 2658/87</span>
+        </div>
+        <p class="lead">
+            EU customs classification is a layered system that adds specificity at each level. Understanding how the
+            6-digit international code expands into 8-digit EU codes and 10-digit TARIC subcodes is essential for
+            determining the correct duty rate.
+        </p>
+    </div>
+
+    <!-- ============ THREE-LAYER HIERARCHY ============ -->
+    <section>
+        <h2>The Three-Layer Classification System</h2>
+
+        <div class="diagram">
+            <div class="tree">
+                <div class="tree__row">
+                    <div class="tree__node tree__node--hs">
+                        <div class="tree__code">HS Code (6 digits) &mdash; WCO</div>
+                        <div class="tree__desc">International standard. Used by 150+ countries.<br>Digits 1&ndash;2: Chapter | 3&ndash;4: Heading | 5&ndash;6: Subheading</div>
+                    </div>
+                </div>
+                <div class="tree__arrow">&darr; EU adds digits 7&ndash;8</div>
+                <div class="tree__row">
+                    <div class="tree__node tree__node--cn">
+                        <div class="tree__code">CN Code (8 digits) &mdash; EU</div>
+                        <div class="tree__desc">Combined Nomenclature. Determines the base duty rate.<br>Digits 7&ndash;8: EU-specific subdivision. Published annually.</div>
+                    </div>
+                </div>
+                <div class="tree__arrow">&darr; EU adds digits 9&ndash;10</div>
+                <div class="tree__row">
+                    <div class="tree__node tree__node--taric">
+                        <div class="tree__code">TARIC Code (10 digits) &mdash; EU</div>
+                        <div class="tree__desc">Further subdivision for specific measures (anti-dumping, quotas, suspensions).<br>Updated daily by DG TAXUD.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout callout--info">
+            <div class="callout__title">When digits are &ldquo;00&rdquo;</div>
+            If a CN code has no EU-specific subdivision at digits 7&ndash;8, they are <code>00</code>.
+            Similarly, if a TARIC code has no further subdivision at digits 9&ndash;10, they are <code>00</code>.
+            For example, <code>1515 90 59 00</code> is a valid full 10-digit TARIC code.
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============ HEADING 1515 FULL STRUCTURE ============ -->
+    <section>
+        <h2>Heading 1515: Full Structure</h2>
+
+        <p>
+            Heading <code>1515</code> covers <strong>&ldquo;Other fixed vegetable or microbial fats and oils (including
+            jojoba oil) and their fractions, whether or not refined, but not chemically modified.&rdquo;</strong>
+            The word &ldquo;Other&rdquo; means these are fats and oils <em>not</em> specifically named in earlier headings
+            (soya-bean oil, olive oil, palm oil, sunflower oil, etc. are all classified elsewhere in Chapter 15).
+        </p>
+
+        <div class="table-wrap">
+            <table class="table-relaxed">
+                <thead>
+                    <tr>
+                        <th>HS subheading</th>
+                        <th>Description</th>
+                        <th class="center">Focus of this report</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>1515 11 / 19</code></td>
+                        <td>Linseed oil and its fractions</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><code>1515 21 / 29</code></td>
+                        <td>Maize (corn) oil and its fractions</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><code>1515 30</code></td>
+                        <td>Castor oil and its fractions</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><code>1515 50</code></td>
+                        <td>Sesame oil and its fractions</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><code>1515 90</code></td>
+                        <td><strong>Other</strong> (all remaining fixed vegetable/microbial fats and oils)</td>
+                        <td class="center">&#8592; <strong>Yes</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout--note">
+            <div class="callout__title">What falls under 1515 90?</div>
+            Heading 1515 90 (&ldquo;Other&rdquo;) captures fats and oils that do not have their own dedicated subheading.
+            These include: <strong>jojoba oil, tung oil, oiticica oil, hazelnut oil, avocado oil, hemp seed oil,
+            rice bran oil, walnut oil, shea butter, mango kernel oil, tamanu oil</strong>, microbial oils, and many
+            others. Essentially any fixed vegetable or microbial fat/oil not specifically named elsewhere.
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============ SUBHEADING 1515 90 BREAKDOWN ============ -->
+    <section>
+        <h2>Subheading 1515 90: CN 8-digit Breakdown</h2>
+
+        <p>
+            The EU further subdivides HS subheading 1515 90 into CN 8-digit codes. The subdivision follows two key
+            distinctions:
+        </p>
+
+        <div class="panel-grid panel-grid--2">
+            <div class="panel">
+                <div class="panel__title">Distinction 1: Crude vs. Refined</div>
+                <p class="text-small">
+                    <strong>Crude oils</strong> (unrefined) are classified in CN codes ending in <code>40</code>,
+                    <code>51</code>, and <code>59</code>. <br><br>
+                    <strong>Refined or non-crude oils</strong> (including those that have been processed beyond crude
+                    state) are classified in codes ending in <code>60</code>, <code>91</code>, and <code>99</code>.
+                </p>
+            </div>
+            <div class="panel">
+                <div class="panel__title">Distinction 2: End use</div>
+                <p class="text-small">
+                    Codes ending in <code>40</code> and <code>60</code> cover oils
+                    <strong>for technical or industrial uses</strong> (non-food).<br><br>
+                    The remaining codes (<code>51</code>, <code>59</code>, <code>91</code>, <code>99</code>) cover oils
+                    <strong>for other uses</strong> (typically food, cosmetics, pharmaceutical).
+                </p>
+            </div>
+        </div>
+
+        <h3>Complete CN 8-digit table</h3>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>CN Code</th>
+                        <th>State</th>
+                        <th>End use</th>
+                        <th>Packaging</th>
+                        <th class="center">MFN Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>1515 90 40</code></td>
+                        <td>Crude oils</td>
+                        <td>Technical/industrial</td>
+                        <td>Any</td>
+                        <td class="center num"><span class="rate rate--low">3.2%</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>1515 90 51</code></td>
+                        <td>Crude oils</td>
+                        <td>Other (non-technical)</td>
+                        <td>Solid, &le; 1 kg</td>
+                        <td class="center num"><span class="rate rate--high">12.8%</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>1515 90 59</code></td>
+                        <td><strong>Crude oils</strong></td>
+                        <td>Other (non-technical)</td>
+                        <td><strong>Solid, &gt; 1 kg; or fluid</strong></td>
+                        <td class="center num"><span class="rate rate--mf">6.4%</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>1515 90 60</code></td>
+                        <td>Refined/non-crude</td>
+                        <td>Technical/industrial</td>
+                        <td>Any</td>
+                        <td class="center num"><span class="rate rate--low">5.1%</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>1515 90 91</code></td>
+                        <td>Refined/non-crude</td>
+                        <td>Other (non-technical)</td>
+                        <td>Solid, &le; 1 kg</td>
+                        <td class="center num"><span class="rate rate--high">12.8%</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>1515 90 99</code></td>
+                        <td><strong>Refined/non-crude</strong></td>
+                        <td>Other (non-technical)</td>
+                        <td><strong>Solid, &gt; 1 kg; or fluid</strong></td>
+                        <td class="center num"><span class="rate rate--mf">9.6%</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="stat-grid">
+            <div class="stat">
+                <div class="stat__label">Crude, bulk/fluid</div>
+                <div class="stat__value rate rate--mf">6.4%</div>
+                <div class="stat__sub">CN 1515 90 59</div>
+            </div>
+            <div class="stat">
+                <div class="stat__label">Refined, bulk/fluid</div>
+                <div class="stat__value rate rate--mf">9.6%</div>
+                <div class="stat__sub">CN 1515 90 99</div>
+            </div>
+            <div class="stat">
+                <div class="stat__label">Technical/industrial crude</div>
+                <div class="stat__value rate rate--low">3.2%</div>
+                <div class="stat__sub">CN 1515 90 40</div>
+            </div>
+            <div class="stat">
+                <div class="stat__label">Small retail (&le; 1 kg)</div>
+                <div class="stat__value rate rate--high">12.8%</div>
+                <div class="stat__sub">CN 1515 90 51 / 91</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============ CLASSIFICATION FLOW ============ -->
+    <section>
+        <h2>How to Classify a Product Under 1515 90</h2>
+
+        <p>
+            The following decision tree shows how to determine the correct CN 8-digit code for a given vegetable oil
+            or fat. For a comprehensive guide with worked examples and common pitfalls, see the
+            <a href="classification-guide.html">Classification Guide</a>.
+        </p>
+
+        <div class="diagram">
+            <div class="flow flow--vertical">
+                <div class="flow__step">
+                    <div class="flow__title">Step 1: Is it a &ldquo;fixed&rdquo; vegetable or microbial fat/oil, not chemically modified?</div>
+                    <div class="flow__desc">If NO &rarr; does not fall under heading 1515. If YES &rarr; continue.</div>
+                </div>
+                <div class="flow__down-arrow">&darr;</div>
+                <div class="flow__step">
+                    <div class="flow__title">Step 2: Is it specifically named in another subheading? (linseed, maize, castor, sesame)</div>
+                    <div class="flow__desc">If YES &rarr; classify under 1515 11/19, 21/29, 30, or 50. If NO &rarr; it falls under <code>1515 90</code>.</div>
+                </div>
+                <div class="flow__down-arrow">&darr;</div>
+                <div class="flow__step">
+                    <div class="flow__title">Step 3: Is it crude (unrefined) or refined/non-crude?</div>
+                    <div class="flow__desc">Crude &rarr; codes 40, 51, 59. Refined &rarr; codes 60, 91, 99.</div>
+                </div>
+                <div class="flow__down-arrow">&darr;</div>
+                <div class="flow__step">
+                    <div class="flow__title">Step 4: Is it for technical/industrial use?</div>
+                    <div class="flow__desc">YES &rarr; code 40 (crude) or 60 (refined). NO &rarr; continue.</div>
+                </div>
+                <div class="flow__down-arrow">&darr;</div>
+                <div class="flow__step">
+                    <div class="flow__title">Step 5: Is it solid in packings &le; 1 kg?</div>
+                    <div class="flow__desc">YES &rarr; code 51 (crude) or 91 (refined). NO (solid &gt; 1 kg or fluid/liquid) &rarr; code <strong>59</strong> (crude) or <strong>99</strong> (refined).</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============ TARI CODES ============ -->
+    <section>
+        <h2>TARIC 10-digit Subcodes</h2>
+
+        <p>
+            While CN codes determine the base duty rate, TARIC 10-digit codes may be needed to apply specific measures
+            (e.g., anti-dumping duties, tariff suspensions). For the two codes in focus:
+        </p>
+
+        <div class="table-wrap">
+            <table class="table-relaxed">
+                <thead>
+                    <tr>
+                        <th>CN Code (8-digit)</th>
+                        <th>TARIC Subcode (10-digit)</th>
+                        <th>Additional specificity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="1"><code>1515 90 59</code></td>
+                        <td><code>1515 90 59 00</code></td>
+                        <td>No further TARIC subdivision &mdash; the &ldquo;catch-all&rdquo; code</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4"><code>1515 90 99</code></td>
+                        <td><code>1515 90 99 00</code></td>
+                        <td>Base code (general)</td>
+                    </tr>
+                    <tr>
+                        <td><code>1515 90 99 20</code></td>
+                        <td>Hazelnut oil</td>
+                    </tr>
+                    <tr>
+                        <td><code>1515 90 99 92</code></td>
+                        <td>Refined oil containing &ge;35% arachidonic acid or &ge;35% docosahexaenoic acid</td>
+                    </tr>
+                    <tr>
+                        <td><code>1515 90 99 99</code></td>
+                        <td>Other (not elsewhere specified)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout--info">
+            <div class="callout__title">For practical purposes</div>
+            All TARIC subcodes under CN <code>1515 90 59</code> and <code>1515 90 99</code> carry the <strong>same duty
+            rates</strong>. The 10-digit subdivision matters only for specific measures (if any exist for a particular
+            product type) and for statistical purposes.
+        </div>
+    </section>
+
+    <div class="divider divider--bold"></div>
+
+    <div class="text-center mb-3">
+        <a href="legal-framework.html" class="btn btn--secondary">&larr; Legal Framework</a>
+        &nbsp;
+        <a href="family-151590.html" class="btn">Next: 1515.90 Family Comparison &rarr;</a>
+    </div>
+
+</main>
+
+<div id="tpl-footer"></div>
+
+<button class="back-to-top" aria-label="Back to top">&uarr;</button>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="eu-blue">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Step-by-step guide to classifying vegetable oils under HS heading 1515 90, with decision tree, worked examples, and common pitfalls.">
+<title>Classification Guide — Tariff Analysis Report</title>
+
+<!-- Prevent theme flash -->
+<script>(function(){try{var t=localStorage.getItem("hs1515-theme")||"eu-blue";document.documentElement.setAttribute("data-theme",t);var ft=localStorage.getItem("hs1515-font")||"modern";document.documentElement.setAttribute("data-font",ft);var f=localStorage.getItem("hs1515-fontsize")||"normal";document.documentElement.setAttribute("data-fontsize",f);var w=localStorage.getItem("hs1515-width")||"normal";document.documentElement.setAttribute("data-width",w)}catch(e){}})();</script>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div id="tpl-header"></div>
+<div id="tpl-nav"></div>
+
+<main class="page">
+
+    <div class="print-only print-title">
+        <h1>How to Classify a Product Under 1515 90</h1>
+        <span class="print-title__badge">4 July 2026</span>
+    </div>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb__sep">/</span>
+        <a href="nomenclature.html">Nomenclature</a>
+        <span class="breadcrumb__sep">/</span>
+        <span>Classification Guide</span>
+    </div>
+
+    <div class="page-header">
+        <h1>How to Classify a Product Under 1515 90</h1>
+        <div class="page-header__meta">
+            <span class="meta-pill meta-pill--gold">Decision tree</span>
+            <span class="meta-pill">Worked examples</span>
+            <span class="meta-pill meta-pill--green">Common pitfalls</span>
+        </div>
+        <p class="lead">
+            A practical, step-by-step guide to determining the correct CN 8-digit code for any vegetable or
+            microbial fat/oil falling under heading 1515 90. Follow the decision tree, check the worked examples,
+            and avoid the common classification traps.
+        </p>
+    </div>
+
+    <!-- ============ THE FIVE GATES ============ -->
+    <section>
+        <h2>The Five-Gate Decision Tree</h2>
+
+        <p>
+            Classification under 1515 90 requires passing through five sequential decision points, or &ldquo;gates.&rdquo;
+            Each gate narrows the code until only one CN 8-digit subheading remains.
+        </p>
+
+        <div class="diagram">
+            <div class="flow flow--vertical">
+                <div class="flow__step">
+                    <div class="flow__num">1</div>
+                    <div class="flow__title">Is it a fixed vegetable or microbial fat/oil, not chemically modified?</div>
+                    <div class="flow__desc">
+                        <strong>PASS if:</strong> The product is a naturally occurring (non-volatile, non-essential) fat or oil
+                        from a plant or microbial source, and it has <em>not</em> been boiled, oxidised, dehydrated,
+                        sulphurised, blown, polymerised, or otherwise chemically modified.<br><br>
+                        <strong>FAIL &rarr;</strong> If it is chemically modified, classify under <a href="nomenclature.html">heading 1518</a>.
+                        If it is an essential oil or perfume material, classify under Chapter 33.
+                    </div>
+                </div>
+                <div class="flow__down-arrow">&darr;</div>
+                <div class="flow__step">
+                    <div class="flow__num">2</div>
+                    <div class="flow__title">Is it specifically named in another subheading of heading 1515?</div>
+                    <div class="flow__desc">
+                        Heading 1515 has named subheadings for: linseed oil (<code>1515 11/19</code>), maize/corn oil
+                        (<code>1515 21/29</code>), castor oil (<code>1515 30</code>), and sesame oil (<code>1515 50</code>).
+                        Also check other Chapter 15 headings: soya-bean (1507), groundnut (1508), olive (1509/1510),
+                        palm (1511), sunflower (1512), coconut/copra (1513), rape/colza (1514), raw caster oil, tung oil.<br><br>
+                        <strong>FAIL &rarr;</strong> If the product <em>is</em> specifically named, classify under that
+                        subheading. <strong>PASS &rarr;</strong> If it is not named, it falls under the catch-all
+                        <code>1515 90</code>.
+                    </div>
+                </div>
+                <div class="flow__down-arrow">&darr;</div>
+                <div class="flow__step">
+                    <div class="flow__num">3</div>
+                    <div class="flow__title">Is it crude (unrefined) or refined/non-crude?</div>
+                    <div class="flow__desc">
+                        <strong>CRUDE:</strong> The oil has only been extracted (mechanically pressed or solvent extracted)
+                        and possibly filtered to remove solid impurities. No degumming, neutralisation, bleaching, or
+                        deodorisation. High FFA alone does not make an oil &ldquo;refined&rdquo; &mdash; crude oils can
+                        have high FFA naturally.<br><br>
+                        <strong>REFINED / NON-CRUDE:</strong> The oil has undergone any of: degumming, neutralisation
+                        (alkali refining), bleaching, deodorisation, winterisation, or any processing beyond simple
+                        extraction and filtration.
+                    </div>
+                </div>
+                <div class="flow__down-arrow">&darr;</div>
+                <div class="flow__step">
+                    <div class="flow__num">4</div>
+                    <div class="flow__title">Is it for technical or industrial use?</div>
+                    <div class="flow__desc">
+                        <strong>YES:</strong> The oil is destined for industrial processing &mdash; biodiesel feedstock,
+                        soap making, lubricant manufacture, paint/coating formulations, leather treatment, epoxy
+                        plasticisers, etc. The buyer is an industrial facility, not a food distributor or cosmetic brand.
+                        The oil is not fit for human consumption without further processing.<br><br>
+                        <strong>NO:</strong> The oil is destined for food, cosmetic, pharmaceutical, or direct consumer use.
+                    </div>
+                </div>
+                <div class="flow__down-arrow">&darr;</div>
+                <div class="flow__step">
+                    <div class="flow__num">5</div>
+                    <div class="flow__title">Is it solid, in packings of 1 kg or less?</div>
+                    <div class="flow__desc">
+                        This gate applies to <em>solid</em> fats only (e.g., shea butter, illipe butter, sal fat).
+                        Liquid/fluid oils always pass through to codes <code>59</code> or <code>99</code>.<br><br>
+                        <strong>Solid &le; 1 kg &rarr;</strong> code <code>51</code> (crude) or <code>91</code> (refined).
+                        These are consumer/retail packings and carry the <strong>highest duty (12.8%)</strong>.<br><br>
+                        <strong>Solid &gt; 1 kg, or fluid/liquid &rarr;</strong> code <code>59</code> (crude) or
+                        <code>99</code> (refined). These are bulk packings.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============ QUICK REFERENCE MATRIX ============ -->
+    <section>
+        <h2>Quick Reference: All Six Codes at a Glance</h2>
+
+        <p>Once you know the answers to Gates 3, 4, and 5, use this matrix to find the code:</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Crude or Refined?</th>
+                        <th>End Use</th>
+                        <th>Packaging</th>
+                        <th>CN Code</th>
+                        <th class="num">MFN Duty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="3">Crude</td>
+                        <td>Technical / industrial</td>
+                        <td>Any</td>
+                        <td><code>1515 90 40</code></td>
+                        <td class="num"><span class="rate rate--low">3.2%</span></td>
+                    </tr>
+                    <tr>
+                        <td>Food / cosmetic / other</td>
+                        <td>Solid &le; 1 kg</td>
+                        <td><code>1515 90 51</code></td>
+                        <td class="num"><span class="rate rate--high">12.8%</span></td>
+                    </tr>
+                    <tr class="highlight">
+                        <td><strong>Food / cosmetic / other</strong></td>
+                        <td><strong>Solid &gt; 1 kg or fluid</strong></td>
+                        <td><strong><code>1515 90 59</code></strong></td>
+                        <td class="num"><strong><span class="rate rate--mf">6.4%</span></strong></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">Refined</td>
+                        <td>Technical / industrial</td>
+                        <td>Any</td>
+                        <td><code>1515 90 60</code></td>
+                        <td class="num"><span class="rate rate--low">5.1%</span></td>
+                    </tr>
+                    <tr>
+                        <td>Food / cosmetic / other</td>
+                        <td>Solid &le; 1 kg</td>
+                        <td><code>1515 90 91</code></td>
+                        <td class="num"><span class="rate rate--high">12.8%</span></td>
+                    </tr>
+                    <tr class="highlight">
+                        <td><strong>Food / cosmetic / other</strong></td>
+                        <td><strong>Solid &gt; 1 kg or fluid</strong></td>
+                        <td><strong><code>1515 90 99</code></strong></td>
+                        <td class="num"><strong><span class="rate rate--mf">9.6%</span></strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============ WORKED EXAMPLES ============ -->
+    <section>
+        <h2>Worked Examples</h2>
+
+        <p>Five common products classified step by step through the decision tree:</p>
+
+        <div class="panel">
+            <div class="panel__label">Example 1</div>
+            <div class="panel__title">Crude Rubber Seed Oil for Biodiesel Feedstock (Indonesia &rarr; EU)</div>
+            <table class="table-kv mt-1">
+                <tbody>
+                    <tr><td class="col-medium"><strong>Gate 1:</strong></td><td>Fixed vegetable oil from rubber tree seeds, not chemically modified &rarr; <strong>PASS</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 2:</strong></td><td>Rubber seed oil is not named in any subheading &rarr; <strong>PASS &rarr; 1515 90</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 3:</strong></td><td>Only mechanically expelled/solvent extracted, not refined &rarr; <strong>CRUDE</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 4:</strong></td><td>Imported for transesterification at an EU biodiesel plant &rarr; <strong>TECHNICAL / INDUSTRIAL</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 5:</strong></td><td>Not reached (Gate 4 was YES &rarr; code <strong>40</strong>)</td></tr>
+                    <tr class="highlight">
+                        <td class="col-medium"><strong>Result:</strong></td>
+                        <td><strong><code>1515 90 40</code></strong> &mdash; Crude oil for technical/industrial use &mdash; <span class="rate rate--low">3.2%</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-smaller mt-1"><a href="code-15159040.html">View full code analysis &rarr;</a></p>
+        </div>
+
+        <div class="panel">
+            <div class="panel__label">Example 2</div>
+            <div class="panel__title">Crude Avocado Oil in Bulk Drums (Peru &rarr; EU, for food use)</div>
+            <table class="table-kv mt-1">
+                <tbody>
+                    <tr><td class="col-medium"><strong>Gate 1:</strong></td><td>Fixed vegetable oil from avocado fruit, not chemically modified &rarr; <strong>PASS</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 2:</strong></td><td>Avocado oil is not named &rarr; <strong>PASS &rarr; 1515 90</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 3:</strong></td><td>Cold-pressed, unrefined &rarr; <strong>CRUDE</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 4:</strong></td><td>Imported by a food distributor for retail sale &rarr; <strong>NOT technical</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 5:</strong></td><td>Bulk drums of 200 L (liquid/fluid, &gt; 1 kg) &rarr; <strong>NO</strong></td></tr>
+                    <tr class="highlight">
+                        <td class="col-medium"><strong>Result:</strong></td>
+                        <td><strong><code>1515 90 59</code></strong> &mdash; Crude oil, food/cosmetic, bulk/fluid &mdash; <span class="rate rate--mf">6.4%</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-smaller mt-1"><a href="code-15159059.html">View full code analysis &rarr;</a></p>
+        </div>
+
+        <div class="panel">
+            <div class="panel__label">Example 3</div>
+            <div class="panel__title">Refined Shea Butter in Blocks &gt; 1 kg (Ghana &rarr; EU, for cosmetics)</div>
+            <table class="table-kv mt-1">
+                <tbody>
+                    <tr><td class="col-medium"><strong>Gate 1:</strong></td><td>Fixed vegetable fat from shea nuts, not chemically modified &rarr; <strong>PASS</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 2:</strong></td><td>Shea butter is not named &rarr; <strong>PASS &rarr; 1515 90</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 3:</strong></td><td>Deodorised, bleached &rarr; <strong>REFINED</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 4:</strong></td><td>Imported by a cosmetic manufacturer &rarr; <strong>NOT technical</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 5:</strong></td><td>Solid blocks of 25 kg &rarr; <strong>NO (&gt; 1 kg)</strong></td></tr>
+                    <tr class="highlight">
+                        <td class="col-medium"><strong>Result:</strong></td>
+                        <td><strong><code>1515 90 99</code></strong> &mdash; Refined oil, food/cosmetic, bulk &mdash; <span class="rate rate--mf">9.6%</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-smaller mt-1"><a href="code-15159099.html">View full code analysis &rarr;</a></p>
+        </div>
+
+        <div class="panel">
+            <div class="panel__label">Example 4</div>
+            <div class="panel__title">Refined Hazelnut Oil in 250 ml Bottles (Turkey &rarr; EU, for food)</div>
+            <table class="table-kv mt-1">
+                <tbody>
+                    <tr><td class="col-medium"><strong>Gate 1:</strong></td><td>Fixed vegetable oil from hazelnuts, not chemically modified &rarr; <strong>PASS</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 2:</strong></td><td>Hazelnut oil is not named &rarr; <strong>PASS &rarr; 1515 90</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 3:</strong></td><td>Refined (filtered, deodorised) &rarr; <strong>REFINED</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 4:</strong></td><td>For retail food sale &rarr; <strong>NOT technical</strong></td></tr>
+                    <tr><td class="col-medium"><strong>Gate 5:</strong></td><td>250 ml liquid bottles &mdash; but liquid is &gt;1 kg equivalent? No &mdash; 250 ml &asymp; 230 g, which is <strong>&le; 1 kg</strong> &rarr; <strong>YES</strong></td></tr>
+                    <tr class="highlight">
+                        <td class="col-medium"><strong>Result:</strong></td>
+                        <td><strong><code>1515 90 91</code></strong> &mdash; Refined, food, &le;1 kg &mdash; <span class="rate rate--high">12.8%</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="panel panel--accent">
+            <div class="panel__label">Example 5 &mdash; The Trap</div>
+            <div class="panel__title">Crude Neem Oil &mdash; is it technical or not?</div>
+            <p class="text-small">
+                Crude neem oil could be classified under <code>1515 90 40</code> (3.2%) if it is for
+                biopesticide production (industrial use), or <code>1515 90 59</code> (6.4%) if it is for
+                traditional medicine or cosmetic use. <strong>The duty difference is 3.2 percentage points.</strong>
+            </p>
+            <p class="text-small">
+                The end use is determined by objective evidence: the purchase contract, the nature of the buyer
+                (industrial pesticide manufacturer vs. herbal medicine distributor), and the product specifications.
+                If the buyer is an agrochemical company, <code>1515 90 40</code> is defensible. If the buyer is a
+                pharmacy or cosmetic brand, it is <code>1515 90 59</code>.
+            </p>
+            <div class="callout callout--warning">
+                <div class="callout__title">Customs will challenge end-use claims</div>
+                Declaring <code>1515 90 40</code> (3.2%) when the oil is actually for food/cosmetic use constitutes
+                misdeclaration. Always obtain a BTI ruling for borderline cases.
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============ COMMON PITFALLS ============ -->
+    <section>
+        <h2>Common Classification Pitfalls</h2>
+
+        <div class="panel panel--danger">
+            <div class="panel__label">Pitfall 1</div>
+            <div class="panel__title">&ldquo;High FFA means it must be an acid oil (Chapter 38)&rdquo;</div>
+            <p class="text-small">
+                <strong>Wrong.</strong> High free fatty acid content (even 25&ndash;35%) does not move a crude vegetable
+                oil from Chapter 15 to Chapter 38. Heading 3823 (&ldquo;acid oils from refining&rdquo;) covers the
+                <em>acidulated by-product of alkali refining</em> (soapstock that has been treated with acid), not a
+                crude oil that naturally has high FFA. Classification follows the <strong>manufacturing process</strong>,
+                not the chemical profile.
+            </p>
+        </div>
+
+        <div class="panel panel--danger">
+            <div class="panel__label">Pitfall 2</div>
+            <div class="panel__title">&ldquo;If I refine it slightly (just filtered), it stays crude&rdquo;</div>
+            <p class="text-small">
+                <strong>Correct &mdash; with a caveat.</strong> Mechanical filtering to remove seed meal, sediment,
+                or solid impurities does <em>not</em> change crude status. However, if the oil has been degummed,
+                neutralised (alkali-treated), bleached with bleaching earth, or deodorised with steam under vacuum,
+                it is <strong>refined</strong> for classification purposes &mdash; even if the refining was minimal.
+                The CN does not distinguish degrees of refining.
+            </p>
+        </div>
+
+        <div class="panel panel--danger">
+            <div class="panel__label">Pitfall 3</div>
+            <div class="panel__title">&ldquo;Liquid oils in small bottles always stay at 6.4% or 9.6%&rdquo;</div>
+            <p class="text-small">
+                <strong>Wrong.</strong> The &le;1 kg threshold in Gate 5 applies to <em>both</em> solid and liquid
+                products. A 250 ml bottle of crude walnut oil weighs ~230 g &mdash; that is &le; 1 kg, so it goes to
+                <code>1515 90 51</code> (12.8%), not <code>1515 90 59</code> (6.4%). The 1 kg threshold is based on
+                the net weight of the contents in the immediate packing.
+            </p>
+        </div>
+
+        <div class="panel panel--danger">
+            <div class="panel__label">Pitfall 4</div>
+            <div class="panel__title">&ldquo;I can choose 1515 90 40 (3.2%) just by writing &lsquo;industrial&rsquo; on the invoice&rdquo;</div>
+            <p class="text-small">
+                <strong>Risky.</strong> Customs authorities look at <em>objective evidence</em>, not just a single word
+                on an invoice. They will examine: who is the buyer? What do they manufacture? Is the oil fit for food
+                without further processing? Is there a supply agreement? If the buyer is a food distributor, writing
+                &ldquo;industrial&rdquo; on the invoice will not fool customs &mdash; and could trigger penalties for
+                misdeclaration.
+            </p>
+        </div>
+
+        <div class="panel panel--danger">
+            <div class="panel__label">Pitfall 5</div>
+            <div class="panel__title">&ldquo;Jojoba oil goes under 1515 90&rdquo;</div>
+            <p class="text-small">
+                <strong>Technically yes, but check.</strong> Jojoba oil is explicitly mentioned in the heading 1515
+                heading text (&ldquo;including jojoba oil&rdquo;). It does not have its own subheading, so it falls
+                under <code>1515 90</code>. However, some jojoba &ldquo;oil&rdquo; on the market is actually a liquid
+                wax ester, not a triglyceride oil. If it is classified as a wax rather than an oil, it may fall under
+                heading 1521 (vegetable waxes) instead. Check the product's technical specification.
+            </p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============ EVIDENCE CHECKLIST ============ -->
+    <section>
+        <h2>Evidence Checklist for Customs</h2>
+
+        <p>Whatever code you declare, customs may ask for evidence. Prepare this documentation:</p>
+
+        <div class="table-wrap">
+            <table class="table-relaxed">
+                <thead>
+                    <tr>
+                        <th>Gate</th>
+                        <th>Evidence needed</th>
+                        <th>Why customs asks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Gate 1</strong></td>
+                        <td>Certificate of analysis (botanical source, extraction method)</td>
+                        <td>Confirms it is a fixed vegetable oil, not an essential oil or chemically modified product</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gate 2</strong></td>
+                        <td>Product description and botanical name (Latin)</td>
+                        <td>Confirms the oil is not specifically named in another heading/subheading</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gate 3</strong></td>
+                        <td>Processing description; certificate of analysis (FFA, phosphorus, peroxide value)</td>
+                        <td>Distinguishes crude from refined. Low phosphorus + low FFA = likely refined. High FFA alone does not prove crude.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gate 4</strong></td>
+                        <td>End-use declaration; supply agreement with EU buyer; purchase contract</td>
+                        <td>Proves the oil is genuinely for technical/industrial use (or not). This is the most scrutinised gate.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gate 5</strong></td>
+                        <td>Packing list; net weight per immediate container</td>
+                        <td>Determines whether the &le;1 kg threshold applies</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout--info">
+            <div class="callout__title">BTI: The gold standard</div>
+            For any product imported regularly or in significant volume, apply for a
+            <strong>Binding Tariff Information (BTI)</strong> ruling from the importing Member State's customs authority.
+            A BTI is binding for 3 years across all 27 EU Member States and eliminates classification risk entirely.
+        </div>
+    </section>
+
+    <div class="divider divider--bold"></div>
+
+    <div class="text-center mb-3">
+        <a href="nomenclature.html" class="btn btn--secondary">&larr; Nomenclature</a>
+        &nbsp;
+        <a href="rubber-seed-oil.html" class="btn">Next: Rubber Seed Oil Strategy &rarr;</a>
+    </div>
+
+</main>
+
+<div id="tpl-footer"></div>
+
+<button class="back-to-top" aria-label="Back to top">&uarr;</button>
+<script src="assets/app.js"></script>
+</body>
+</html>
